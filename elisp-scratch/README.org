@@ -1,0 +1,2 @@
+
+This folder is for experimental emacs-lisp files that do not belong to any package. Use it for notebook-like files.
