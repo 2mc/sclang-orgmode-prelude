@@ -9,7 +9,6 @@
 (defun sclang-execute-current-snippet ()
   "Evaluate region between //: comments in sclang."
   (interactive)
-;;; NOTE: rewrite this using (let ()) to make variables local!
   (save-excursion
     (let (
           (here (point))
