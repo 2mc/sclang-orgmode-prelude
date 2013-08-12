@@ -1,7 +1,7 @@
-;;; sclang-setup.el --- Setup variables for running SuperCollider in emacs
+;;; sclang-setup.el --- Setup variables for running SuperCollider in Emacs.
 
 ;;; Commentary:
-;;; Set up variables required by sclang to run SuperCollider in emacs
+;;; Set up variables required by sclang to run SuperCollider in Emacs.
 
 ;;; CODE:
 
@@ -16,5 +16,8 @@
 
 ;; Global keyboard shortcut for starting sclang
 (global-set-key (kbd "C-c S") 'sclang-start)
+
+;; Disable switching to default SuperCollider Workspace when recompiling SClang
+(setq sclang-show-workspace-on-startup nil)
 
 ;;; sclang-setup ends here

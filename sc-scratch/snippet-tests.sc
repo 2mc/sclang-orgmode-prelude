@@ -1,6 +1,4 @@
 
-//:
-
 Server.default.boot;
 
 //:
@@ -15,3 +13,8 @@ a.release(0.5);
 
 Server.default.quit;
 
+//:
+
+f = { | a | (a + 5).sqrt };
+
+f.(10);

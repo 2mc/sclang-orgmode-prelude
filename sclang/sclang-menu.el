@@ -18,6 +18,7 @@
 ;; (sclang-set-command-handler
 ;;  '_updateMenu
 ;;  (lambda (arg)
+
 ;;    (message "menu: %s" arg)))
 
 (provide 'sclang-menu)

@@ -24,7 +24,7 @@
                  (not (equal f "."))
                  (file-exists-p
                   (format "%s/%s.el"
-                          name (first (last (split-string name "/") 1))))
+                          name (car (last (split-string name "/") 1))))
                  )
          (setq packages
               (cons (file-name-nondirectory name) packages))
