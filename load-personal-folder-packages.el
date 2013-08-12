@@ -1,4 +1,4 @@
-;;; load_personal_folder_packages.el --- Load packages in personal folder
+;;; load-personal-folder-packages.el --- Load packages in personal folder
 
 ;;; Commentary:
 ;;; Loads the packages that are contained in the personal folder
@@ -32,4 +32,4 @@
   (dolist (packagename packages) (require (intern packagename)))
 )
 
-;;; load_personal_folder_packages ends here
+;;; load-personal-folder-packages ends here
