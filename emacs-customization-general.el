@@ -17,7 +17,13 @@
 ;;; Enable usage of arrow-cursor keys: It is needed for orgmode.
 (setq prelude-guru nil)
 
+;;; Turn off long line coloring
+(add-hook 'org-mode-hook 'whitespace-turn-off)
+
 ;;; Start speedbar
-(speedbar)
+;; (speedbar) ;; disabled: interferes with helm
+
+;;; Use a different dark color theme
+;;; (load-theme 'solarized-dark t)  ;;; not available in my config yet
 
 ;;; emacs-customization-general.el ends here

@@ -1,4 +1,3 @@
-
 sclang-orgmode-prelude
 ======================
 
@@ -23,3 +22,5 @@ Personal folder for emacs-prelude package: setup of sclang, auto-load of package
 - `sclang-snippets.el` : Define sclang-mode keyboard shortcuts for evaluating SuperCollider code regions separated by comment lines with semicolon: `//:`.
 
 - `emacs-customization-general.el` : Diverse customizations, too small to put in separate files. Currently: Activate automatic re-opening of last session's files on startup; set Emacs default frame size to a larger size.
+
+- `keyboard-binding.el` : My additions and modifications to keyboard bindings of Emacs.
