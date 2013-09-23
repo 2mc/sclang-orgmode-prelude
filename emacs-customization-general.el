@@ -17,8 +17,16 @@
 ;;; Enable usage of arrow-cursor keys: It is needed for orgmode.
 (setq prelude-guru nil)
 
-;;; Turn off long line coloring
+;;; Disable prelude whitespace
+(setq prelude-whitespace nil)
+
+;;; Turn off long line coloring in org mode
 (add-hook 'org-mode-hook 'whitespace-turn-off)
+
+;;; Wrap lines to fit width of window in org mode
+(add-hook 'org-mode-hook 'visual-line-mode)
+
+;;; Following are disabled for the reasons given below
 
 ;;; Start speedbar
 ;; (speedbar) ;; disabled: interferes with helm
