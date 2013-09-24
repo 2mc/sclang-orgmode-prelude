@@ -5,6 +5,9 @@
 
 ;;; CODE:
 
+;;; use color theme with stronger contrast for selected regions and sparse trees
+;;; (load-theme 'manoj-dark t)
+
 ;;; save configuration of emacs buffers at exit
 (desktop-save-mode t)
 

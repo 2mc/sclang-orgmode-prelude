@@ -20,9 +20,17 @@
 (setq org-capture-templates
       '(
         ("i" "income" entry (file+datetree "~/Dropbox/notes/capturefiles/ledger.org")
-         "* %?\n  :PROPERTIES:\n  :AMOUNT: %^{AMOUNT}p\n :CATEGORY: %^{CATEGORY}p\n :DATE: %U\n :ENTRYTYPE: transaction\n :TRANSACTIONTYPE: income\n :END:\n%i\n")
+         "* %?\n  :PROPERTIES:\n  :AMOUNT: %^{AMOUNT}p\n :CATEGORY: %^{CATEGORY}p\n :DATE: %U\n :ENTRYTYPE: transaction\n :TRANSACTIONTYPE: income\n :END:\n%i\n"
+         )
         ("e" "expense" entry (file+datetree "~/Dropbox/notes/capturefiles/ledger.org")
-         "* %?\n  :PROPERTIES:\n  :AMOUNT: %^{AMOUNT}p\n :CATEGORY: %^{CATEGORY}p\n :DATE: %U\n :ENTRYTYPE: transaction\n :TRANSACTIONTYPE: expense\n :END:\n%i\n")
+         "* %?\n  :PROPERTIES:\n  :AMOUNT: %^{AMOUNT}p\n :CATEGORY: %^{CATEGORY}p\n :DATE: %U\n :ENTRYTYPE: transaction\n :TRANSACTIONTYPE: expense\n :END:\n%i\n"
+         )
+        ("I" "income (date prompt)" entry (file+datetree+prompt "~/Dropbox/notes/capturefiles/ledger.org")
+         "* %?\n  :PROPERTIES:\n  :AMOUNT: %^{AMOUNT}p\n :CATEGORY: %^{CATEGORY}p\n :DATE: %U\n :ENTRYTYPE: transaction\n :TRANSACTIONTYPE: income\n :END:\n%i\n"
+         )
+        ("E" "expense (date prompt)" entry (file+datetree+prompt "~/Dropbox/notes/capturefiles/ledger.org")
+         "* %?\n  :PROPERTIES:\n  :AMOUNT: %^{AMOUNT}p\n :CATEGORY: %^{CATEGORY}p\n :DATE: %U\n :ENTRYTYPE: transaction\n :TRANSACTIONTYPE: expense\n :END:\n%i\n"
+         )
         )
       )
 
