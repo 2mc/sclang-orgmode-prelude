@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>DynSite Publishing Command Reference</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="title" content="DynSite Publishing Command Reference"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2012-03-30 16:35:47 EEST"/>
+<meta name="author" content="Ioannis Zannos"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="./css/org.css" type="text/css"/>
+
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">DynSite Publishing Command Reference</h1>
+
+<p>This is a guide to using the dynamic org-to-html publishing project definition scheme by Ioannis Zannos, called DynSite. 
+See <a href="./org-publish-help.html">here</a> for description. 
+</p>
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">Basic setup: Defining a site and installing it as the default site</a></li>
+<li><a href="#sec-2">Basic commands</a></li>
+<li><a href="#sec-3">Supplementary commands</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Basic setup: Defining a site and installing it as the default site</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+Place this in your ~/.emacs file or some other file which is executed at startup. Vary the names and paths to match your own setup: 
+</p>
+
+
+
+<pre class="example">(org-install-site 
+     '(
+;; name of your site: 
+        "larigot-earlab" 
+;; path of the folder containing the all org project files:
+        "~/Dropbox/orgshared/sites/org/larigot-tests" 
+ ;; path of the folder where the html files will be published:
+        "~/Dropbox/orgshared/sites/html/larigot-tests" 
+ ;; this string will be used as address to upload files to web with rsync:
+        "earlabor@earlab.org:public_html/larigot-tests/"
+))
+</pre>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Basic commands</h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+<span style="text-decoration:underline;">Note:</span> 
+</p><ul>
+<li>super key = "cmd" key on mac, window key on windows
+</li>
+<li>meta key = "alt" or "opt" key on mac, "alt" key on windows, <b>or</b> escape key if emacs has not been configured to recognise alt or opt as the meta key.
+</li>
+</ul>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="left" /><col class="left" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="left">to do this:</th><th scope="col" class="left">run this:</th></tr>
+</thead>
+<tbody>
+<tr><td class="left">generate, publish, and upload the current site</td><td class="left">meta-x org-republish-and-upload-site</td></tr>
+<tr><td class="left"></td><td class="left">shortcut keyboard command for the above function: super-meta-control-shift-p</td></tr>
+<tr><td class="left">edit all configuration files of a site</td><td class="left">meta-x org-publish-edit-all-configs</td></tr>
+<tr><td class="left">edit the site org directory with dired</td><td class="left">meta-x org-dired-site</td></tr>
+<tr><td class="left">choose a site configuration</td><td class="left">meta-x org-choose-site (this also generates the site's project definitions!)</td></tr>
+<tr><td class="left">add pages of site to org-refile targets for access of nodes (enables fast transfer of sections between files!)</td><td class="left">meta-x org-publish-add-all-files-to-refile-targets</td></tr>
+</tbody>
+</table>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Supplementary commands</h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+Following commands were programmed before the basic commands, but are less practical than the basic commands. They enable one to control parts of the publication process. Some of these are used in the higher level functions implementing the basic commands. 
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="left" /><col class="left" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="left">to do this:</th><th scope="col" class="left">run this:</th></tr>
+</thead>
+<tbody>
+<tr><td class="left">add a site configuration (source, html and rsync)</td><td class="left">(add-to-list 'org-sites '("sitename" "org files path" "html files path" "user name@url"))</td></tr>
+<tr><td class="left">set the path of org source files (for all projects)</td><td class="left">meta-x customize-variable org-site-root</td></tr>
+<tr><td class="left">set the path of html publish files</td><td class="left">meta-x customize-variable org-site-html</td></tr>
+<tr><td class="left">set the url for publishing via rsync</td><td class="left">meta-x customize-variable org-site-url</td></tr>
+<tr><td class="left">generate a site's project definitions</td><td class="left">meta-x org-build-projects</td></tr>
+<tr><td class="left">publish a project or group of projects (key: super-B)</td><td class="left">meta-x org-publish-filtering-subprojects (then select project from autocomplete list)</td></tr>
+<tr><td class="left"></td><td class="left">Note: The keyboard shortcut for this function is super-B (Apple-Shift-b or Windows-Shift-b)</td></tr>
+<tr><td class="left">upload a site with rsync</td><td class="left">meta-x org-upload-site-with-rsync</td></tr>
+<tr><td class="left">reset file modification date to force re-publication</td><td class="left">meta-x org-reset-all-project-files</td></tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2012-03-30 16:35:47 EEST</p>
+<p class="author">Author: Ioannis Zannos</p>
+<p class="creator">Org version 7.8.03 with Emacs version 23</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>
