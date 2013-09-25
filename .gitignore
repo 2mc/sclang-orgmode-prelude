@@ -6,3 +6,6 @@
 \.\#*
 *~
 *\#
+
+# ignore user directory - this is not shared in master branch
+user
