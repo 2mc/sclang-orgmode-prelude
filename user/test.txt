@@ -1,5 +1,0 @@
-
-This is a text file to test gitignore on master branch. 
-
-The End. 
-
