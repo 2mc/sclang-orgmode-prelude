@@ -1,0 +1,208 @@
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; FOLLOWING IS USER SPECIFIC
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; My sites for DynSite (see Dropbox/orgshared/config/publish-setup.org and org-publish-help.org)
+
+;; first version for larigot - local to chamade macpro at palace
+(add-to-list 'org-sites 
+	     '(
+	       "larigot" 
+	       "~/Dev/Web/org" 
+	       "~/Dev/Web/html"
+	       "iani@larigot.avarts.ionio.gr:/Volumes/larigot/Library/Server/Web/Data/Sites/Default/test/"
+))
+
+;; second version of larigot - operating from Dropbox and writing to earlab.org
+;; this is till larigot.avarts.ionio.gr becomes accessible from outside the wan of Ionian University
+(setq org-current-site 
+      '(
+	"larigot-earlab" 
+	"~/Dropbox/orgshared/sites/org/larigot-tests" 
+	"~/Dropbox/orgshared/sites/html/larigot-tests" 
+	"earlabor@earlab.org:public_html/larigot-tests/"))
+(add-to-list 'org-sites org-current-site)
+
+
+;; setting my own default site here. Still rather cludgy ... 
+;; (setq org-current-site nil)
+;; (setq org-default-site (assoc "larigot-earlab" org-sites))
+;; (org-set-site (assoc "larigot-earlab" org-sites))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; iCal import an diary stuff
+;; Diary file location
+(setq diary-file "~/Dropbox/notes/diary.txt")
+;; Enable diary
+(setq org-agenda-include-diary t)
+
+(setq org-agenda-custom-commands
+      '(("I" "Import diary from iCal" agenda ""
+         ((org-agenda-mode-hook
+           (lambda ()
+             (org-mac-iCal)))))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(show-paren-mode 1) ;; highlight matching parentheses
+
+;; Configure web sites
+;;(setq 
+;; org-sites 
+;; '(("ambiant-final-draft" 
+;;   "~/org/ambiant" "~/Sites/ambiant" "earlabor@earlab.org:~/public_html/subdomains/ambiant2")))
+
+;; load general configuration
+(load-file "~/Dropbox/notes/config/startup.el")
+
+;; configure capture files in org mode for logging of notes
+(load-file "~/Dropbox/notes/config/capture_setup.el")
+
+
+;; load private rss feed from online notes
+(load-file "~/.rss")
+
+
+(global-set-key [C-f10] 'eval-region)
+
+(global-set-key [C-M-f10] 'load-internal-site-config)
+;;(defun org-agenda-export-year-as-txt ()
+;;  "config publish alist for internal site"
+;;  (interactive)
+;;  (load-file "~/Dropbox/notes/config/org-mode-config-internal-project-export.el")
+;;)
+
+(defun org-agenda-export-year-as-txt ()
+  "export years 2010 to 2018 in yearly batches astext to ~/Dropbox/notes/agenda/
+  These files synchronize very fast on the iPhone and are viewable and 
+  searchable (!!!) by the PlainText iPhone app.
+  the month exports are good for searching for a keyword and then opening 
+  a single month instead of a whole year"
+  (interactive)
+  (org-agenda-list)
+  (org-agenda-change-time-span 'year 2010)
+  (org-agenda-write "~/Dropbox/notes/agenda/agenda2010.txt")
+  (org-agenda-change-time-span 'year 2011)
+  (org-agenda-write "~/Dropbox/notes/agenda/agenda2011.txt")
+  (org-agenda-change-time-span 'year 2012)
+  (org-agenda-write "~/Dropbox/notes/agenda/agenda2012.txt")
+  (org-agenda-change-time-span 'year 2013)
+  (org-agenda-write "~/Dropbox/notes/agenda/agenda2013.txt")
+  (org-agenda-change-time-span 'year 2014)
+  (org-agenda-write "~/Dropbox/notes/agenda/agenda2014.txt")
+  (org-agenda-change-time-span 'year 2015)
+  (org-agenda-write "~/Dropbox/notes/agenda/agenda2015.txt")
+  (org-agenda-change-time-span 'year 2016)
+  (org-agenda-write "~/Dropbox/notes/agenda/agenda2016.txt")
+  (org-agenda-change-time-span 'year 2017)
+  (org-agenda-write "~/Dropbox/notes/agenda/agenda2017.txt")
+  (org-agenda-change-time-span 'year 2018)
+  (org-agenda-write "~/Dropbox/notes/agenda/agenda2018.txt")
+;;  (org-agenda-change-time-span 'month 201105)
+;;  (org-agenda-write "~/Dropbox/notes/agenda/agenda201805.txt")
+;;  (org-agenda-change-time-span 'month 201106)
+;;  (org-agenda-write "~/Dropbox/notes/agenda/agenda201806.txt")
+;;  (org-agenda-change-time-span 'month 201107)
+;;  (org-agenda-write "~/Dropbox/notes/agenda/agenda201807.txt")
+;;  (org-agenda-change-time-span 'month 201108)
+;;  (org-agenda-write "~/Dropbox/notes/agenda/agenda201808.txt")
+;;  (org-agenda-change-time-span 'month 201109)
+;;  (org-agenda-write "~/Dropbox/notes/agenda/agenda201809.txt")
+;;  (org-agenda-change-time-span 'month 201110)
+;;  (org-agenda-write "~/Dropbox/notes/agenda/agenda201810.txt")
+;;  (org-agenda-change-time-span 'month 201111)
+;;  (org-agenda-write "~/Dropbox/notes/agenda/agenda201811.txt")
+;;  (org-agenda-change-time-span 'month 201112)
+;;  (org-agenda-write "~/Dropbox/notes/agenda/agenda201812.txt")
+)
+(global-set-key (kbd "C-C C-X z") 'org-agenda-export-year-as-txt)
+
+
+(defun org-agenda-make-timeline-for-tree ()
+  "make a timeline view in agenda for current tree"
+  (interactive)
+  (org-copy-subtree)
+  (find-file "~/tmp/agenda_tmp.org")
+  (beginning-of-buffer)
+  (let ((beg (point))) (end-of-buffer) (delete-region beg (point)))
+  (org-paste-subtree)
+  (save-buffer)
+  (org-timeline)
+)
+
+(global-set-key [C-f9] 'org-agenda-make-timeline-for-tree)
+(global-set-key (kbd "C-C C-X l") 'org-agenda-make-timeline-for-tree)
+
+(defun org-edit-subtree-in-other-buffer ()
+  "make a timeline view in agenda for current tree"
+  (interactive)
+  (org-copy-subtree)
+  (find-file "~/tmp/subtree_tmp.org")
+  (beginning-of-buffer)
+  (let ((beg (point))) (end-of-buffer) (delete-region beg (point)))
+  (org-paste-subtree)
+  (save-buffer)
+)
+
+(defun org-subtree-finance-report ()
+  "make a timeline view in agenda for current tree"
+  (interactive)
+  (org-copy-subtree)
+  (find-file "~/tmp/finance_tmp.org")
+  (beginning-of-buffer)
+  (let ((beg (point))) (end-of-buffer) (delete-region beg (point)))
+  (org-paste-subtree)
+  (org-set-property "COLUMNS" "%60ITEM %10XPENSE(EXPENSE){+;%.2f} %10INCOME{+} %40TAGS")
+  (save-buffer)
+  (org-columns)
+)
+(global-set-key (kbd "C-C C-X s") 'org-subtree-finance-report)
+
+
+(defun set-finance-columns ()
+  "set columns property to sum expenses and incomes"
+  (interactive)
+  (org-set-property "COLUMNS" "%50ITEM %10EXPENSE{+} %10INCOME{+} %40TAGS"))
+
+
+(defun dired-org-mode-source ()
+  "edit org mode lisp source code directory"
+  (interactive)
+  (dired "/Applications/Emacs.app/Contents/Resources/lisp/org"))
+
+(global-set-key [C-f11] 'dired-org-mode-source)
+
+;; Customize: Use Mono font, size 9 points.
+;; (add-to-list 'default-frame-alist '(font . "Menlo-10"))
+(add-to-list 'default-frame-alist '(font . "Menlo-12"))
+
+;; 
+(defun set-tags-user ()
+  "set tag with name of user ..."
+  (interactive)
+  (org-set-tags-to "IZ")
+)
+
+;; COLORS
+
+
+(load-file "~/Dropbox/notes/config/emacspackages/colortheme.el")
+;; (load-file "~/Dropbox/notes/config/emacspackages/themes/color-theme-active.el")
+;; (load-file "~/Dropbox/notes/config/emacspackages/themes/color-theme-dark-emacs.el")
+;; (load-file "~/Dropbox/notes/config/emacspackages/themes/color-theme-example.el")
+(load-file "~/Dropbox/notes/config/emacspackages/themes/color-theme-folio.el")
+(load-file "~/Dropbox/notes/config/emacspackages/themes/color-theme-leuven.el")
+(load-file "~/Dropbox/notes/config/emacspackages/themes/color-theme-colorful-obsolescence.el")
+(load-file "~/Dropbox/notes/config/emacspackages/themes/color-theme-library.el")
+;; (load-file "~/Dropbox/notes/config/emacspackages/themes/color-theme-manoj.el")
+;; (load-file "~/Dropbox/notes/config/emacspackages/themes/color-theme-tangotango.el")
+(load-file "~/Dropbox/notes/config/emacspackages/themes/color-theme-wombat.el")
+(load-file "~/Dropbox/notes/config/emacspackages/themes/color-theme-zenash.el")
+;; (color-theme-zenburn)
+;; (color-theme-parus)
+;; (color-theme-aalto-light)
+;; (color-theme-djcb-dark)
+(color-theme-infodoc)
+
