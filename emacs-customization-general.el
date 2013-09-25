@@ -23,11 +23,23 @@
 ;;; Disable prelude whitespace
 (setq prelude-whitespace nil)
 
+;;; ORG MODE: Hooks to undo annoying imcompatibilities with prelude:
+
 ;;; Turn off long line coloring in org mode
 (add-hook 'org-mode-hook 'whitespace-turn-off)
 
 ;;; Wrap lines to fit width of window in org mode
 (add-hook 'org-mode-hook 'visual-line-mode)
+
+;;; Turn off prelude mode when in org mode. This is necessary because
+;;; prelude mode overwrites some important org mode bindings.
+(defun org-turn-off-prelude-mode ()
+  (prelude-mode -1)
+)
+
+(add-hook 'org-mode-hook 'org-turn-off-prelude-mode)
+
+;;; End ORG MODE hooks.
 
 ;;; Following are disabled for the reasons given below
 
