@@ -17,22 +17,28 @@
 ;;; CODE:
 (define-key global-map "\C-cc" 'org-capture)
 
+
+
+(setq org-tag-persistent-alist 
+      '(
+        (:startgroup) ("@work" . ?w) ("@home" . ?h) (:endgroup )
+        ("laptop" . ?l)
+        )
+      )
+
 (setq org-capture-templates
       '(
-        ("i" "income" entry (file+datetree "~/Dropbox/notes/capturefiles/ledger.org")
-         "* %?\n  :PROPERTIES:\n  :AMOUNT: %^{AMOUNT}p\n :CATEGORY: %^{CATEGORY}p\n :DATE: %U\n :ENTRYTYPE: transaction\n :TRANSACTIONTYPE: income\n :END:\n%i\n"
+        ("i" "income (date prompt)" entry (file+datetree+prompt "~/Dropbox/000WORKFILES/org/ledger.org")
+         "* %?\n  :PROPERTIES:\n  :INCOME: %^{INCOME}p\n :DATE: %U\n :ENTRYTYPE: transaction\n :TRANSACTIONTYPE: income\n :END:\n%i\n"
          )
-        ("e" "expense" entry (file+datetree "~/Dropbox/notes/capturefiles/ledger.org")
-         "* %?\n  :PROPERTIES:\n  :AMOUNT: %^{AMOUNT}p\n :CATEGORY: %^{CATEGORY}p\n :DATE: %U\n :ENTRYTYPE: transaction\n :TRANSACTIONTYPE: expense\n :END:\n%i\n"
+        ("e" "expense (date prompt)" entry (file+datetree+prompt "~/Dropbox/000WORKFILES/org/ledger.org")
+         "* %?\n  :PROPERTIES:\n  :EXPENSE: %^{EXPENSE}p\n :DATE: %U\n :ENTRYTYPE: transaction\n :TRANSACTIONTYPE: expense\n :END:\n%i\n"
          )
-        ("I" "income (date prompt)" entry (file+datetree+prompt "~/Dropbox/notes/capturefiles/ledger.org")
-         "* %?\n  :PROPERTIES:\n  :AMOUNT: %^{AMOUNT}p\n :CATEGORY: %^{CATEGORY}p\n :DATE: %U\n :ENTRYTYPE: transaction\n :TRANSACTIONTYPE: income\n :END:\n%i\n"
-         )
-        ("E" "expense (date prompt)" entry (file+datetree+prompt "~/Dropbox/notes/capturefiles/ledger.org")
-         "* %?\n  :PROPERTIES:\n  :AMOUNT: %^{AMOUNT}p\n :CATEGORY: %^{CATEGORY}p\n :DATE: %U\n :ENTRYTYPE: transaction\n :TRANSACTIONTYPE: expense\n :END:\n%i\n"
+        ("t" "timesheet (date prompt)" entry (file+datetree+prompt "~/Dropbox/000WORKFILES/org/timesheets.org")
+         "* %?\n  :PROPERTIES:\n  :DURATION: %^{DURATION}p\n :DATE: %U\n :END:\n%i\n"
          )
         )
       )
 
-;;; capture-setup.el ends here
+;;; Capture-setup.el ends here
 
