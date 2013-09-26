@@ -4,15 +4,71 @@ This is a guide to using the dynamic org-to-html publishing project definition s
 
 DynSite is an extension of the default project publishing scheme of orgmode. Instead of writing project definitions in emacs-lisp as is done in the original orgmode publishing scheme, the present extension allows one to define and customize the projects by putting them in folders and to define their custom parameters in plain text, using orgmode markup.
 
+* Orgmode publishing and DynSite working principles
+
+The html publishing scheme of orgmode allows one to define groups of files which share the same configuration (headers, footers, css style files etc.), so that these files are puglished together with one command.  Such a group of files is called a project.  It is possible to define many projects.  One can publish a project with the command org-publish-project.  To define a project in orgmode one has to code its specifications in emacs-lisp.  Coding this is cumbersome, especially because any html strings that will be included in the files as headers, footers etc. must be coded as lisp-strings, which requires double-escaping html characters such as tag delimiters and other elements.  The present tool, DynSite, makes the project definition process easier by letting one define a projects parameters in a config file written in org mode.  It simplifies the specification of projects  further by grouping these in subfolders of one folder.  A group of projects contained under one folder is called a /site/.  In DynSite, one defines one site by specifying the following three elements: 
+
+1. Site source folder: The location of the folder which contains the project subfolders. 
+2. Site target folder: The folder where these projects should be published as html.
+3. The method for uploading the published html files to the server. 
+
+The folder structure of the published files inide the site target folder is the same as the folder structure of the site source. 
+
+To define a project inside the Site source folder one creates a file named config.org in it. This file contains the configuration of the project, i.e. web page name, headers, footers, style etc.  One can put a config.org file in any subfolder of the site, including a subfolder of a folder that already contains a project.  Project characteristics are inherited.  Projects are named after the name of the folder which contains them.  For example, consider a site source folder named "mysite", containing the following folders and files: 
+
+#+BEGIN_EXAMPLE
+mysite
+   config.org
+   index.org
+   ...
+   proj1/
+      config.org
+      proj1page1.org
+      ...
+   proj2/
+      config.org
+      proj2.org
+      ...
+      subproj1/
+          config.org
+          subproj1.org
+          ...
+#+END_EXAMPLE
+
+The above folders and files define the projects =mysite=, =proj1=, =proj2= and =subproj1=. =subproj1= inherits its specifications from =proj2=. =proj1= and =proj2= inherit their style specifications from project =mysite=.  DynSite provides commands for publishing all projects of a site, or a selected project by name. 
+
+One can define any number of sites in DynSite. But only one site is current at any time. One chooses the current site by its name with the command org-choose-site. 
+
 * Quick setup
 
-@<b>For a summary of all commands and quick configuration guide for setting up a site see [[./org-publish-command-reference.org][here]].@</b>
+@<b>For a summary of all commands and quick configuration guide for setting up a site see [[./dynsite-command-reference.org][here]].@</b>
+
+* Defining a site
+
+Here is the definition of a site which takes its source files (org) from =~/SitesSource/= and publishes the result in =~/Sites/=. (Note: =~/Sites/= is the default folder for a user's personal home page files in MacOS X). 
+
+#+BEGIN_EXAMPLE
+(org-install-site 
+     '(
+;; name of your site: 
+	"my-site" 
+;; path of the folder containing the all org project files:
+	"~/SitesSource" 
+ ;; path of the folder where the html files will be published:
+	"~/Sites" 
+ ;; this string will be used as address to upload files to web with rsync:
+	"earlabor@earlab.org:public_html/larigot-tests/"
+))
+#+END_EXAMPLE
+
+In MacOS X one can browse the resulting site by accessing it via the =file= protocol: file:///Users/username/Sites/index.html or, if Apache is running on the local computer, with: http://localhost/~username/ .
+
 
 * Site File Structure
 
 ** Source and Target Folders
 
-DynSite expects all org-to-html projects to be stored as subfolders of one single folder. For example, if one has 3 projects named project1, project2 and project3, one could place them in one folder named org as follows: 
+For each site defned with DynSite expects all org-to-html projects to be stored as subfolders of one single folder. For example, if one has 3 projects named project1, project2 and project3, one could place them in one folder named org as follows: 
 
 |-----------------------------------+-------------------------------------|
 | path                              | contents                            |
@@ -23,7 +79,7 @@ DynSite expects all org-to-html projects to be stored as subfolders of one singl
 | /users/user1/website/org/project2 | all files (and folders) of project3 |
 |-----------------------------------+-------------------------------------|
 
-A folder containing one or more subfolders with different projects, where each project has its own properties regarding css styles, preamble and postamble and other publishing properties, is called a *site*. These projects are published in subfolders of a single target folder, preserving the same structure as the source folder. 
+These projects are published in subfolders of the single target folder specified in the site definition, preserving the same structure as the source folder. 
 
 It is possible to work with several different sites, where each site has its own source folder (the org project files), its own target folder (the published html files) and a url for uploading the rendered html files to a server using rsync. See [[Working with multiple sites]] below. 
 

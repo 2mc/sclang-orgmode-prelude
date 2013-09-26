@@ -1,3 +1,7 @@
+;;; dynsite.el --- Configure and manage orgmode publishing projects. 
+
+;;; Commentary:
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Basic commands: ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Building the projects definitions to work with (the sites are made later based on these):
 ;; org-build-projects: Construct and store all project defs in org-publish-project-alist
@@ -24,7 +28,7 @@
 ;; - (DEBUG:) sort super/subfolders so that inheritance of properties is correct
 ;; - add mechanism to permit multiple projects with same folder names
 ;;   Suggestion: just concat the names of the superfolders for all projects, 
-;;   in reverse order. Examples: 
+;;   in reverse order. Examples:
 ;;   org (top level project) 
 ;;   subfolder1/org (subproject of top level project)
 ;;   subsubfolder1/subfolder1/org (subproject of subproject of top level project)
@@ -50,6 +54,7 @@
 ;;   These consist of : (name org-site-root org-site-html org-site-url)
 ;; - defun org-choose-site to switch 
 
+;;; Code:
 
 ;; following variables are needed for publishing as of orgmode version 7.8.03:
 (setq org-sitemap-file-entry-format "%t")
@@ -103,9 +108,10 @@
 
 ;;;###autoload
 
+;; TODO: If a site with the same name already exists, then remove it. 
 (defun org-install-site (sitespecs)
   "add a list defining a site's folders and url to the list of known sites, and make it active"
-  (require 'org-publish)
+;;  (require 'org-publish)
   (require 'cl)
   (setq org-current-site sitespecs)
   (add-to-list 'org-sites org-current-site)
@@ -116,12 +122,14 @@
 (defun org-choose-site (site)
   "Choose site configuration, setting org-site-root, org-site-html, org-site-url"
   (interactive
-   (list
-    (assoc (org-icompleting-read
-	    "Choose site: " org-sites nil t)
-	    org-sites)))
-  (org-set-site site)
-  (message (format "you chose: %s" (car site))))
+   (let ((choice (assoc (org-icompleting-read
+                         "Choose site: " org-sites nil t)
+                        org-sites)))
+     (if (not choice) (setq choice (car org-sites)))
+     (org-set-site choice)
+     (list (message (format "you chose: %s" (car choice))))
+     ))
+  )
 
 (defun org-set-site (site)
   (setq org-current-site site)
@@ -245,7 +253,7 @@
      :base-extension "org" ;; publish all org files
      :exclude "config.org$" ;; except config.org
      :section-numbers nil ;; do not add section numbers
-     :sub-superscript nil ;; do not translate _ and ^ as subscript and superscript
+     :with-sub-superscript nil ;; do not translate _ and ^ as subscript and superscript
      :table-of-contents t ;; generate a table of contents
 ;; did not get the following lines for making an index to do anything useful yet
 ;; I need to look at: http://orgmode.org/Changes_old.html, section "Index generation"
@@ -253,7 +261,7 @@
 ;; next line produces an error ([2012-03-25 Sun 20:59])
 ;;     :makeindex t ;; makeindex again, according to http://orgmode.org/manual/Generating-an-index.html#Generating-an-index
      :recursive t ;; descend into subdirectories
-     :publishing-function 'org-publish-org-to-html ;; publish to html
+     :publishing-function 'org-html-publish-to-html ;; publish to html
      :headline-levels 2 ;; only include headlines down to 2 levels in the table of contents
      :auto-preamble nil ;; do not use automatic preamble
      :auto-sitemap t                ; Generate sitemap.org automagically...
@@ -482,3 +490,7 @@ This is done using property :folder-exclude"
   (if (null in-plist)
       in-plist
     (cons (car in-plist) (plist-keys (cddr in-plist)))))
+
+(provide 'dynsite)
+
+;;; dynsite.el ends here

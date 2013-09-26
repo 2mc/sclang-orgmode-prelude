@@ -1,7 +1,7 @@
 #+TITLE: DynSite Publishing Command Reference
 
 This is a guide to using the dynamic org-to-html publishing project definition scheme by Ioannis Zannos, called DynSite. 
-See [[./org-publish-help.org][here]] for description. 
+See [[./dynsite-help.org][here]] for description. 
 
 * Basic setup: Defining a site and installing it as the default site
 
@@ -26,6 +26,7 @@ Place this in your ~/.emacs file or some other file which is executed at startup
 _Note:_ 
 - super key = "cmd" key on mac, window key on windows
 - meta key = "alt" or "opt" key on mac, "alt" key on windows, *or* escape key if emacs has not been configured to recognise alt or opt as the meta key.
+(If you are using the prelude emacs package, then swap the meanings of super and meta for MacOS above.)
 
 |-------------------------------------------------------------+------------------------------------------------------------------------------|
 | to do this:                                                 | run this:                                                                    |
@@ -42,16 +43,17 @@ _Note:_
 
 Following commands were programmed before the basic commands, but are less practical than the basic commands. They enable one to control parts of the publication process. Some of these are used in the higher level functions implementing the basic commands. 
 
-|-------------------------------------------------------------+---------------------------------------------------------------------------------------------|
-| to do this:                                                 | run this:                                                                                   |
-|-------------------------------------------------------------+---------------------------------------------------------------------------------------------|
-| add a site configuration (source, html and rsync)           | (add-to-list 'org-sites '("sitename" "org files path" "html files path" "user name@url"))   |
-| set the path of org source files (for all projects)         | meta-x customize-variable org-site-root                                                     |
-| set the path of html publish files                          | meta-x customize-variable org-site-html                                                     |
-| set the url for publishing via rsync                        | meta-x customize-variable org-site-url                                                      |
-| generate a site's project definitions                       | meta-x org-build-projects                                                                   |
-| publish a project or group of projects (key: super-B)       | meta-x org-publish-filtering-subprojects (then select project from autocomplete list)       |
-|                                                             | Note: The keyboard shortcut for this function is super-B (Apple-Shift-b or Windows-Shift-b) |
-| upload a site with rsync                                    | meta-x org-upload-site-with-rsync                                                           |
-| reset file modification date to force re-publication        | meta-x org-reset-all-project-files                                                          |
-|-------------------------------------------------------------+---------------------------------------------------------------------------------------------|
+|-------------------------------------------------------+---------------------------------------------------------------------------------------------|
+| to do this:                                           | run this:                                                                                   |
+|-------------------------------------------------------+---------------------------------------------------------------------------------------------|
+| add a site configuration (source, html and rsync)     | (add-to-list 'org-sites '("sitename" "org files path" "html files path" "user name@url"))   |
+| set the path of org source files (for all projects)   | meta-x customize-variable org-site-root                                                     |
+| set the path of html publish files                    | meta-x customize-variable org-site-html                                                     |
+| set the url for publishing via rsync                  | meta-x customize-variable org-site-url                                                      |
+| generate a site's project definitions                 | meta-x org-build-projects                                                                   |
+| publish a project or group of projects (key: super-B) | meta-x org-publish-filtering-subprojects (then select project from autocomplete list)       |
+|                                                       | Note: The keyboard shortcut for this function is super-B (Apple-Shift-b or Windows-Shift-b) |
+| upload a site with rsync                              | meta-x org-upload-site-with-rsync                                                           |
+| reset file modification date to force re-publication  | meta-x org-reset-all-project-files                                                          |
+|-------------------------------------------------------+---------------------------------------------------------------------------------------------|
+|                                                       |                                                                                             |
