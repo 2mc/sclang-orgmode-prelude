@@ -28,7 +28,7 @@
 (setq org-capture-templates
       '(
         ("s" "scratch (fast note entry)" entry (file (concat org-folder "scratch.org"))
-         "* %?\n :PROPERTIES:\n :DATE: %T\n :ENTRYTYPE: note\n :END:\n%i\n"
+         "* %? %^g\n :PROPERTIES:\n :DATE: %T\n :ENTRYTYPE: note\n :END:\n%i\n"
          )
         ("a" "agenda (date prompt)" entry (file+datetree+prompt (concat monitoring-folder "agenda.org"))
          "* %?\n :PROPERTIES:\n :LOCATION: %^{LOCATION}p\n :DATE: %T\n :ENTRYTYPE: task\n :END:\n%i\n"
@@ -48,7 +48,27 @@
 ;;; Create global default tag list available to all files
 (setq org-tag-persistent-alist 
       '(
-        (:startgroup) ("@work" . ?w) ("@home" . ?h) (:endgroup )
+        (:startgroup) ("@work" . ?W) ("@home" . ?H) (:endgroup )
+        (:startgroup) ("diploma" . ?d) ("phd" . ?p) ("class" . ?c) 
+        ("meal" . ?m) ("errand" . ?e) ("household" . ?h) (:endgroup)
+        (:startgroup) ("research" . ?r) ("web" . ?w) 
+        ("reading" . ?b) ("sports" . ?S) (:endgroup)
+        (:startgroup) ("emacs" . ?e) ("supercollider" . ?s) 
+        ("publication" . ?l) ("artproject" . ?a ) (:endgroup )
+        ("laptop" . ?l)
+        )
+      )
+
+;;; Persistent does not work with capture? Difference persistent / simple?
+(setq org-tag-alist 
+      '(
+        (:startgroup) ("@work" . ?W) ("@home" . ?H) (:endgroup )
+        (:startgroup) ("diploma" . ?d) ("phd" . ?p) ("class" . ?c) 
+        ("meal" . ?m) ("errand" . ?e) ("household" . ?h) (:endgroup)
+        (:startgroup) ("research" . ?r) ("web" . ?w) 
+        ("reading" . ?b) ("sports" . ?S) (:endgroup)
+        (:startgroup) ("emacs" . ?e) ("supercollider" . ?s) 
+        ("publication" . ?l) ("artproject" . ?a ) (:endgroup )
         ("laptop" . ?l)
         )
       )
