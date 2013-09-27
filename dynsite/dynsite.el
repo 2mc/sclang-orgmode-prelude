@@ -28,7 +28,7 @@
 ;; - (DEBUG:) sort super/subfolders so that inheritance of properties is correct
 ;; - add mechanism to permit multiple projects with same folder names
 ;;   Suggestion: just concat the names of the superfolders for all projects, 
-;;   in reverse order. Examples:
+;;   in reverse order.  Examples:
 ;;   org (top level project) 
 ;;   subfolder1/org (subproject of top level project)
 ;;   subsubfolder1/subfolder1/org (subproject of subproject of top level project)
@@ -426,7 +426,7 @@ This is done using property :folder-exclude"
    (find-file file)))
 
 (defun org-publish-add-all-files-to-refile-targets ()
-  "add all files in org-site-root to refile-targets for easy access with autocomplete"
+  "Add all files in org-site-root to refile-targets for easy access with autocomplete."
   (interactive)
   (dolist (file (find-lisp-find-files org-site-root "\\.org$"))
     (if (not (equal "config.org" (file-name-nondirectory file)))

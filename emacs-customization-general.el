@@ -39,6 +39,17 @@
 
 (add-hook 'org-mode-hook 'org-turn-off-prelude-mode)
 
+;;; Enable some cool languages in org-babel mode:
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (sh . t)
+   (ruby . t)
+   (python . t)
+   (perl . t)
+   ))
+
 ;;; End ORG MODE hooks.
 
 ;;; Following are disabled for the reasons given below
