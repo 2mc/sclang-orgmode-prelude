@@ -59,7 +59,8 @@
         ("reading" . ?b) ("sports" . ?S) (:endgroup)
         (:startgroup) ("emacs" . ?e) ("supercollider" . ?s) 
         ("publication" . ?l) ("artproject" . ?a ) (:endgroup )
-        ("laptop" . ?l)
+        ("laptop" . ?l) ("mt" . nil) ("coffee" . nil) ("toilet" . nil)
+        ("sleep" . nil) ("procrastinating" . nil)
         )
       )
 
