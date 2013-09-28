@@ -76,7 +76,7 @@
          (:startgroup) ("emacs" . ?e) ("supercollider" . ?s) 
          ("publication" . ?l) ("artproject" . ?a ) (:endgroup )
          ("laptop" . ?l) ("mt" . nil) ("coffee" . nil) ("toilet" . nil)
-         ("sleep" . nil) ("procrastinating" . nil)
+         ("sleep" . nil) ("procrastinating" . nil) ("career" . nil) ("avarts" . nil)
          )
        )
 
