@@ -46,36 +46,39 @@
       )
 
 ;;; Create global default tag list available to all files
-;;; Note: to org-capture-fill-template function was edited, 
+;;; Note: the org-capture-fill-template function was edited, 
 ;;; at  'org-tags-completion-function to use these as in 
 ;;; org-set-tags, calling (org-get-tags-string).
 ;;; This should be reported to orgmode mailing list. 
-(setq org-tag-persistent-alist 
-      '(
-        (:startgroup) ("work" . ?W) ("home" . ?H) (:endgroup )
-        (:startgroup) ("diploma" . ?d) ("phd" . ?p) ("class" . ?c) 
-        ("meal" . ?m) ("errand" . ?e) ("household" . ?h) (:endgroup)
-        (:startgroup) ("research" . ?r) ("web" . ?w) 
-        ("reading" . ?b) ("sports" . ?S) (:endgroup)
-        (:startgroup) ("emacs" . ?e) ("supercollider" . ?s) 
-        ("publication" . ?l) ("artproject" . ?a ) (:endgroup )
-        ("laptop" . ?l) ("mt" . nil) ("coffee" . nil) ("toilet" . nil)
-        ("sleep" . nil) ("procrastinating" . nil)
-        )
-      )
 
-(setq org-tag-alist 
-      '(
-        (:startgroup) ("@work" . ?W) ("@home" . ?H) (:endgroup )
-        (:startgroup) ("diploma" . ?d) ("phd" . ?p) ("class" . ?c) 
-        ("meal" . ?m) ("errand" . ?e) ("household" . ?h) (:endgroup)
-        (:startgroup) ("research" . ?r) ("web" . ?w) 
-        ("reading" . ?b) ("sports" . ?S) (:endgroup)
-        (:startgroup) ("emacs" . ?e) ("supercollider" . ?s) 
-        ("publication" . ?l) ("artproject" . ?a ) (:endgroup )
-        ("laptop" . ?l)
-        )
-      )
+;; NOTE: The persistent alist is not used by org-capture.  org-rag-alist is.
+;; (setq org-tag-persistent-alist 
+;;       '(
+;;         (:startgroup) ("work" . ?W) ("home" . ?H) (:endgroup )
+;;         (:startgroup) ("diploma" . ?d) ("phd" . ?p) ("class" . ?c) 
+;;         ("meal" . ?m) ("errand" . ?E) ("household" . ?h) (:endgroup)
+;;         (:startgroup) ("research" . ?r) ("web" . ?w) 
+;;         ("reading" . ?b) ("sports" . ?S) (:endgroup)
+;;         (:startgroup) ("emacs" . ?e) ("supercollider" . ?s) 
+;;         ("publication" . ?l) ("artproject" . ?a ) (:endgroup )
+;;         ("laptop" . ?l) ("mt" . nil) ("coffee" . nil) ("toilet" . nil)
+;;         ("sleep" . nil) ("procrastinating" . nil)
+;;         )
+;;       )
+
+ (setq org-tag-alist 
+       '(
+         (:startgroup) ("work" . ?W) ("home" . ?H) (:endgroup )
+         (:startgroup) ("diploma" . ?d) ("phd" . ?p) ("class" . ?c) 
+         ("meal" . ?m) ("errand" . ?E) ("household" . ?h) (:endgroup)
+         (:startgroup) ("research" . ?r) ("web" . ?w) 
+         ("reading" . ?b) ("sports" . ?S) (:endgroup)
+         (:startgroup) ("emacs" . ?e) ("supercollider" . ?s) 
+         ("publication" . ?l) ("artproject" . ?a ) (:endgroup )
+         ("laptop" . ?l) ("mt" . nil) ("coffee" . nil) ("toilet" . nil)
+         ("sleep" . nil) ("procrastinating" . nil)
+         )
+       )
 
 
 (defun get-subfolders-with-paths (base)

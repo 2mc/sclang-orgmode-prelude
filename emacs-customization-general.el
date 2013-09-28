@@ -52,6 +52,15 @@
 
 ;;; End ORG MODE hooks.
 
+;;; Magit config: Manage git repos from inside emacs
+(setq magit-repo-dirs 
+      '(
+        "~/Dropbox/000WORKFILES/org"
+        "~/Documents/Dev/"
+        "~/.emacs.d/personal/"
+))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Following are disabled for the reasons given below
 
 ;;; Start speedbar
