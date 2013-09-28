@@ -56,8 +56,8 @@
 (setq magit-repo-dirs 
       '(
         "~/Dropbox/000WORKFILES/org"
-        "~/Documents/Dev/"
-        "~/.emacs.d/personal/"
+        "~/Documents/Dev"
+        "~/.emacs.d/personal"
 ))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
