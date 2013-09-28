@@ -28,27 +28,31 @@
 (setq org-capture-templates
       '(
         ("s" "scratch (fast note entry)" entry (file (concat org-folder "scratch.org"))
-         "* %? %^g\n :PROPERTIES:\n :DATE: %T\n :ENTRYTYPE: note\n :END:\n%i\n"
+         "* %? %^G\n :PROPERTIES:\n :DATE: %T\n :ENTRYTYPE: note\n :END:\n%i\n"
          )
         ("a" "agenda (date prompt)" entry (file+datetree+prompt (concat monitoring-folder "agenda.org"))
-         "* %?\n :PROPERTIES:\n :LOCATION: %^{LOCATION}p\n :DATE: %T\n :ENTRYTYPE: task\n :END:\n%i\n"
+         "* %? %^G\n :PROPERTIES:\n :LOCATION: %^{LOCATION}p\n :DATE: %T\n :ENTRYTYPE: task\n :END:\n%i\n"
          )
         ("i" "income (date prompt)" entry (file+datetree+prompt (concat monitoring-folder "ledger.org"))
-         "* %?\n :PROPERTIES:\n :INCOME: %^{INCOME}p\n :DATE: %T\n :ENTRYTYPE: transaction\n :TRANSACTIONTYPE: income\n :END:\n%i\n"
+         "* %? %^G\n :PROPERTIES:\n :INCOME: %^{INCOME}p\n :DATE: %T\n :ENTRYTYPE: transaction\n :TRANSACTIONTYPE: income\n :END:\n%i\n"
          )
         ("e" "expense (date prompt)" entry (file+datetree+prompt (concat monitoring-folder "ledger.org"))
-         "* %?\n :PROPERTIES:\n :EXPENSE: %^{EXPENSE}p\n :DATE: %T\n :ENTRYTYPE: transaction\n :TRANSACTIONTYPE: expense\n :END:\n%i\n"
+         "* %? %^G\n :PROPERTIES:\n :EXPENSE: %^{EXPENSE}p\n :DATE: %T\n :ENTRYTYPE: transaction\n :TRANSACTIONTYPE: expense\n :END:\n%i\n"
          )
         ("t" "timesheet (date prompt)" entry (file+datetree+prompt (concat monitoring-folder "timesheets.org"))
-         "* %?\n :PROPERTIES:\n :DURATION: %^{DURATION}p\n :DATE: %T\n :END:\n%i\n"
+         "* %? %^G\n :PROPERTIES:\n :DATE: %T\n :END:\n%i\n"
          )
         )
       )
 
 ;;; Create global default tag list available to all files
+;;; Note: to org-capture-fill-template function was edited, 
+;;; at  'org-tags-completion-function to use these as in 
+;;; org-set-tags, calling (org-get-tags-string).
+;;; This should be reported to orgmode mailing list. 
 (setq org-tag-persistent-alist 
       '(
-        (:startgroup) ("@work" . ?W) ("@home" . ?H) (:endgroup )
+        (:startgroup) ("work" . ?W) ("home" . ?H) (:endgroup )
         (:startgroup) ("diploma" . ?d) ("phd" . ?p) ("class" . ?c) 
         ("meal" . ?m) ("errand" . ?e) ("household" . ?h) (:endgroup)
         (:startgroup) ("research" . ?r) ("web" . ?w) 
@@ -59,7 +63,6 @@
         )
       )
 
-;;; Persistent does not work with capture? Difference persistent / simple?
 (setq org-tag-alist 
       '(
         (:startgroup) ("@work" . ?W) ("@home" . ?H) (:endgroup )
@@ -136,9 +139,17 @@
   "Add refile target choice keyboard commands."
   (local-set-key (kbd "C-c T") 'org-refile-add-target)
   (local-set-key (kbd "C-c t") 'org-refile-set-target)
+;; and a utility for setting the duration tag
+  (local-set-key (kbd "C-c d") 'org-set-duration-property)
   )
 
 (add-hook 'org-mode-hook 'org-refile-target-key-hook)
+
+(defun org-set-duration-property (duration)
+  "Set duration property of current entry. Prompt for duration time"
+  (interactive "sDuration: ")
+  (org-set-property "DURATION" duration)
+)
 
 ;;; Not strictly capture, but similar, as it gives quick access to group of files: 
 ;;; Open a file contained in the main org folder or its subfolders, using projectile. 
