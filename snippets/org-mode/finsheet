@@ -1,0 +1,12 @@
+# contributor: Jimmy Wu <frozenthrone88@gmail.com>
+#name : finances report sheet
+# key: finsheet
+# --
+#+BEGIN: propview :conds ((string= ENTRYTYPE "transaction")) :cols (ITEM DATE TAGS INCOME EXPENSE)
+| ITEM | DATE | TAGS | INCOME | EXPENSE |
+|------+------+------+--------+---------|
+|      |      |      |        |         |
+|------+------+------+--------+---------|
+|      |      |    0 |    700 |  546.22 |
+#+TBLFM: @>\$3 = @>\$4 - @>\$5 :: @>\$4=vsum(@I..@II)::@>\$>=vsum(@I..@II)
+#+END:

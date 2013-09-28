@@ -60,6 +60,11 @@
         "~/.emacs.d/personal"
 ))
 
+;;; Enable snippets with yasnippet
+
+(require 'yasnippet)
+(yas-load-directory "~/.emacs.d/personal/snippets/")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Following are disabled for the reasons given below
 

@@ -34,10 +34,10 @@
          "* %? %^G\n :PROPERTIES:\n :LOCATION: %^{LOCATION}p\n :DATE: %T\n :ENTRYTYPE: task\n :END:\n%i\n"
          )
         ("i" "income (date prompt)" entry (file+datetree+prompt (concat monitoring-folder "ledger.org"))
-         "* %? %^G\n :PROPERTIES:\n :INCOME: %^{INCOME}p\n :DATE: %T\n :ENTRYTYPE: transaction\n :TRANSACTIONTYPE: income\n :END:\n%i\n"
+         "* %?\n :PROPERTIES:\n :INCOME: %^{INCOME}p\n :DATE: %T\n :ENTRYTYPE: transaction\n :TRANSACTIONTYPE: income\n :END:\n%i\n"
          )
         ("e" "expense (date prompt)" entry (file+datetree+prompt (concat monitoring-folder "ledger.org"))
-         "* %? %^G\n :PROPERTIES:\n :EXPENSE: %^{EXPENSE}p\n :DATE: %T\n :ENTRYTYPE: transaction\n :TRANSACTIONTYPE: expense\n :END:\n%i\n"
+         "* %?\n :PROPERTIES:\n :EXPENSE: %^{EXPENSE}p\n :DATE: %T\n :ENTRYTYPE: transaction\n :TRANSACTIONTYPE: expense\n :END:\n%i\n"
          )
         ("t" "timesheet (date prompt)" entry (file+datetree+prompt (concat monitoring-folder "timesheets.org"))
          "* %? %^G\n :PROPERTIES:\n :DATE: %T\n :END:\n%i\n"
@@ -46,10 +46,6 @@
       )
 
 ;;; Create global default tag list available to all files
-;;; Note: the org-capture-fill-template function was edited, 
-;;; at  'org-tags-completion-function to use these as in 
-;;; org-set-tags, calling (org-get-tags-string).
-;;; This should be reported to orgmode mailing list. 
 
 ;; NOTE: The persistent alist is not used by org-capture.  org-rag-alist is.
 ;; (setq org-tag-persistent-alist 
@@ -69,7 +65,7 @@
  (setq org-tag-alist 
        '(
          (:startgroup) ("work" . ?W) ("home" . ?H) (:endgroup )
-         (:startgroup) ("diploma" . ?d) ("phd" . ?p) ("class" . ?c) 
+         (:startgroup) ("finance" . ?f) ("diploma" . ?d) ("phd" . ?p) ("class" . ?c) 
          ("meal" . ?m) ("errand" . ?E) ("household" . ?h) (:endgroup)
          (:startgroup) ("research" . ?r) ("web" . ?w) 
          ("reading" . ?b) ("sports" . ?S) (:endgroup)
@@ -77,6 +73,7 @@
          ("publication" . ?l) ("artproject" . ?a ) (:endgroup )
          ("laptop" . ?l) ("mt" . nil) ("coffee" . nil) ("toilet" . nil)
          ("sleep" . nil) ("procrastinating" . nil) ("career" . nil) ("avarts" . nil)
+         ("food" . nil) ("restaurant" . nil)
          )
        )
 
