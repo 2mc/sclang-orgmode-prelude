@@ -65,6 +65,13 @@
 (require 'yasnippet)
 (yas-load-directory "~/.emacs.d/personal/snippets/")
 
+;;; log notes in drawer:
+(setq org-log-into-drawer t)
+
+;;; Display habits correctly when rescheduling next date due
+(setq org-habit-show-habits-only-for-today nil)
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Following are disabled for the reasons given below
 

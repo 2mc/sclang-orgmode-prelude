@@ -1,0 +1,13 @@
+# contributor: Iannis Zannos <zannos@gmail.com>
+#name : finances expense report sheet
+# key: expenses
+# --
+|---+-------+------+-------|
+| ! | where | item | price |
+|---+-------+------+-------|
+|   |       |      |      |
+|---+-------+------+-------|
+|   |       | SUM: |     0 |
+| ^ |       |      |   sum |
+|---+-------+------+-------|
+#+TBLFM: \$sum=vsum(@II..@III)

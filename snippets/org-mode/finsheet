@@ -1,4 +1,4 @@
-# contributor: Jimmy Wu <frozenthrone88@gmail.com>
+# contributor: Iannis Zannos <zannos@gmail.com>
 #name : finances report sheet
 # key: finsheet
 # --
@@ -8,5 +8,5 @@
 |      |      |      |        |         |
 |------+------+------+--------+---------|
 |      |      |    0 |    700 |  546.22 |
-#+TBLFM: @>\$3 = @>\$4 - @>\$5 :: @>\$4=vsum(@I..@II)::@>\$>=vsum(@I..@II)
+#+TBLFM: @>\$3 = @>\$4 - @>\$5 :: @>\$4=vsum(@I..@II)::@>\$5=vsum(@I..@II)
 #+END:
