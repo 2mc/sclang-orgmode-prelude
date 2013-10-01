@@ -71,6 +71,9 @@
 ;;; Display habits correctly when rescheduling next date due
 (setq org-habit-show-habits-only-for-today nil)
 
+;;; Enable paredit mode
+;;; FIXME cannot loaded at this time. Must revise package loading scheme.
+;;; (require 'paredit)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Following are disabled for the reasons given below
