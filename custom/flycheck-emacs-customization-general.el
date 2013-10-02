@@ -9,7 +9,9 @@
 ;;; (load-theme 'manoj-dark t)
 
 ;;; save configuration of emacs buffers at exit
-(desktop-save-mode t)
+
+;;; This creates a problem with the cursor!:
+;;; (desktop-save-mode t)
 
 ;;; resize main window
 (setq default-frame-alist '((width . 210) (height . 65) (menu-bar-lines . 1)))
@@ -53,7 +55,7 @@
 ;;; End ORG MODE hooks.
 
 ;;; Magit config: Manage git repos from inside emacs
-(setq magit-repo-dirs 
+(setq magit-repo-dirs
       '(
         "~/Dropbox/000WORKFILES/org"
         "~/Documents/Dev"

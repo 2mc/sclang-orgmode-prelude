@@ -13,7 +13,7 @@
 ;;; CODE:
 
 (let (
-      (base "~/.emacs.d/personal")
+      (base "~/.emacs.d/personal/packages")
       (packages ())
       )
   (dolist (f (directory-files base))
