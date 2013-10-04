@@ -1,0 +1,3 @@
+[submodule "packages/dynsite"]
+	path = packages/dynsite
+	url = git@github.com:iani/dynsite.git
