@@ -17,4 +17,16 @@
   (dolist (path (file-expand-wildcards "~/.emacs.d/personal/custom/*.el"))
     (load-file path)))
 
+;;; Disabled: also include packages in other subfolders of /personal: 
+;; (let* (
+;;        (base "~/.emacs.d/personal/")
+;;        (default-directory base)
+;;        (custom (concat base "custom")))
+;;   (normal-top-level-add-subdirs-to-load-path)
+;;   (setq default-directory (concat base "packages"))
+;;   (normal-top-level-add-subdirs-to-load-path)
+;;   (dolist (path (file-expand-wildcards "~/.emacs.d/personal/custom/*.el"))
+;;     (load-file path)))
+
+
 ;;; init.el ends here.
