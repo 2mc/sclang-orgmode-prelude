@@ -14,10 +14,29 @@
 ;; Make path of sclang executable available to emacs shell load path
 (push (expand-file-name "Contents/Resources" scapp-dir) exec-path)
 
+;; Load sclang package
+(require 'sclang)
+
 ;; Global keyboard shortcut for starting sclang
 (global-set-key (kbd "C-c S") 'sclang-start)
 
 ;; Disable switching to default SuperCollider Workspace when recompiling SClang
 (setq sclang-show-workspace-on-startup nil)
 
+;; Save results of sc evaluation in elisp variable for access in emacs
+(defvar sclang-return-string  nil
+  "The string returned by sclang process when evaluating expressions.")
+
+(defadvice sclang-process-filter (before provide-sclang-eval-results)
+  "Pass sc eval return string to elisp by setting sclang-return-string variable."
+  (setq sclang-return-string (ad-get-arg 1)))
+
+(ad-activate 'sclang-process-filter)
+
 ;;; sclang-setup ends here
+
+
+
+
+
+
