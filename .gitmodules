@@ -1,3 +1,12 @@
 [submodule "packages/dynsite"]
 	path = packages/dynsite
 	url = git@github.com:iani/dynsite.git
+[submodule "packages/epresent"]
+	path = packages/epresent
+	url = https://github.com/eschulte/epresent.git
+[submodule "packages/org-reveal"]
+	path = packages/org-reveal
+	url = https://github.com/yjwen/org-reveal.git
+[submodule "packages/o-blog"]
+	path = packages/o-blog
+	url = https://github.com/renard/o-blog.git
