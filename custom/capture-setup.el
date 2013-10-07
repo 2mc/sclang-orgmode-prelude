@@ -80,6 +80,9 @@
         ("T" "Timesheet (monitoring/timesheets.org)" entry (file+datetree+prompt (concat monitoring-folder "timesheets.org"))
          "* %? %^G\n :PROPERTIES:\n :DATE: %T\n :END:\n%i\n"
          )
+        ("R" "Review (monitoring/reviews.org)" entry (file+datetree+prompt (concat monitoring-folder "reviews.org"))
+         "* %? %^G\n :PROPERTIES:\n :DATE: %T\n :END:\n%i\n"
+         )
         )
       )
 

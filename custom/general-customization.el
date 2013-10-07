@@ -5,21 +5,25 @@
 
 ;;; CODE:
 
-;;; use color theme with stronger contrast for selected regions and sparse trees
-;;; (load-theme 'manoj-dark t)
-
 ;;; save configuration of emacs buffers at exit
 
 ;;; desktop-save-mode creates a problem with the cursor!
 ;;; Therefore disable, thereby shortening load time. 
 ;;; For fast access to recent files, use helm-mini command instead (C-c m).
-;;; (desktop-save-mode t)
+;;; (desktop-save-mode t) ;; disabled
 
 ;;; resize main window
-(setq default-frame-alist '((width . 210) (height . 65) (menu-bar-lines . 1)))
+(setq default-frame-alist '((width . 100) (height . 65) (menu-bar-lines . 1)))
 
-;;; Set font size to 10 points.
-(set-face-attribute 'default nil :height 100)
+;;; Set font size to 11 points.
+(set-face-attribute 'default nil :height 110)
+
+;;; Set tab width to 4 characters (for code examples in org-mode)
+(setq-default tab-width 4) ;; Note: (setq tab-width 4) does not work
+
+;;; Some org-mode customization
+(setq org-startup-indented t) ;; auto-indent text in subtrees
+(setq org-hide-leading-stars t) ;; hide leading stars in subtree headings
 
 ;;; Enable usage of arrow-cursor keys: It is needed for orgmode.
 (setq prelude-guru nil)
@@ -38,8 +42,7 @@
 ;;; Turn off prelude mode when in org mode. This is necessary because
 ;;; prelude mode overwrites some important org mode bindings.
 (defun org-turn-off-prelude-mode ()
-  (prelude-mode -1)
-)
+  (prelude-mode -1))
 
 (add-hook 'org-mode-hook 'org-turn-off-prelude-mode)
 
@@ -68,6 +71,8 @@
 
 (require 'yasnippet)
 (yas-load-directory "~/.emacs.d/personal/snippets/")
+(require 'sclang-snippets)
+(add-hook 'sclang-mode-hook 'yas/minor-mode-on)
 
 ;;; log notes in drawer:
 (setq org-log-into-drawer t)
@@ -78,6 +83,17 @@
 ;;; Enable paredit mode
 ;;; FIXME cannot loaded at this time. Must revise package loading scheme.
 ;;; (require 'paredit)
+
+;;; Encryption
+(require 'org-crypt)
+(org-crypt-use-before-save-magic)
+(setq org-tags-exclude-from-inheritance (quote ("crypt")))
+;; GPG key to use for encryption
+;; Either the Key ID or set to nil to use symmetric encryption.
+(setq org-crypt-key nil)
+
+;;; Load epresent package for easy presentations from orgmode
+(require 'epresent)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Following are disabled for the reasons given below
