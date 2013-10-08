@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector ["#3F3F3F" "#CC9393" "#7F9F7F" "#F0DFAF" "#8CD0D3" "#DC8CC3" "#93E0E3" "#DCDCCC"])
- '(custom-enabled-themes (quote (deeper-blue)))
+ '(custom-enabled-themes (quote (manoj-dark)))
  '(custom-safe-themes (quote ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "fc6e906a0e6ead5747ab2e7c5838166f7350b958d82e410257aeeb2820e8a07a" default)))
  '(fci-rule-color "#383838")
  '(org-agenda-files (quote ("~/Dropbox/000WORKFILES/org/work/projects/lectures.org" "~/Dropbox/000WORKFILES/org/agenda/tasks.org" "~/Dropbox/000WORKFILES/org/agenda/repeated.org" "~/Dropbox/000WORKFILES/org/agenda/habits.org" "~/Dropbox/000WORKFILES/org/agenda/calendar.org")))
