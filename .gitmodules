@@ -13,3 +13,6 @@
 [submodule "packages/o-journal"]
 	path = packages/o-journal
 	url = https://github.com/priyadarshan/o-journal.git
+[submodule "packages/calfw"]
+	path = packages/calfw
+	url = https://github.com/kiwanami/emacs-calfw.git
