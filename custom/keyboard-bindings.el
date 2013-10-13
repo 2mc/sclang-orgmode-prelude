@@ -12,6 +12,9 @@
 (global-set-key (kbd "M-]") 'forward-paragraph)
 (global-set-key (kbd "M-[") 'backward-paragraph)
 
+;;; FIXME: Why does C-M-d not respond?
+(global-set-key (kbd "C-M-y") 'down-list)
+
 ;;; NOTE: See emacs-customization-general.el for turning off prelude mode in org-mode.
 ;;; This is necessary because of keyboard binding imcompatibilities between these two modes.
 
