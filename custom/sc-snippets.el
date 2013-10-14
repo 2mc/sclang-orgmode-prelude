@@ -31,7 +31,9 @@
   (interactive)
   (let ((nextsnippet (re-search-forward "^//:" nil t)))
   (if (not nextsnippet) (setq nextsnippet (point-max)))
-  (goto-char nextsnippet))
+  (goto-char nextsnippet)
+  (next-line)
+  )
 )
 
 (defun sclang-goto-previous-snippet ()
@@ -40,6 +42,7 @@
   (let ((previoussnippet (re-search-backward "^//:" nil t)))
   (if (not previoussnippet) (setq previoussnippet (point-min)))
   (goto-char previoussnippet))
+  (next-line)
 )
 
 (defun sclang-execute-previous-snippet ()
@@ -55,7 +58,6 @@
   (sclang-goto-next-snippet)
   (sclang-execute-current-snippet)
 )
-
 
 (defun sc-snippets ()
   "Define sclang mode keys for snippets."
