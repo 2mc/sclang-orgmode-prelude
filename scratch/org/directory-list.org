@@ -1,0 +1,110 @@
+
+PATH: / --FILE: Chicago-referencing-guide-sem1-2010.pdf
+PATH: / --FILE: Citations_and_references_2010.pdf
+PATH: / --FILE: chicago15B.pdf
+PATH: /CitationAndBibliographyExamples/ --FILE: CitationReferenceExample1.pdf
+PATH: /CitationAndBibliographyExamples/ --FILE: CitationReferenceExample2.pdf
+PATH: /CitationAndBibliographyExamples/ --FILE: CitationReferenceExample3.pdf
+PATH: /CitationAndBibliographyExamples/ --FILE: CitationReferenceExample4.pdf
+PATH: /CitationAndBibliographyExamples/ --FILE: CitationReferenceExample5.pdf
+PATH: /CitationHarvard/ --FILE: uow025425.pdf
+PATH: /RandyPauschOnTimeManagement/ --FILE: TMenglishTranscript.pdf
+PATH: /examples/ --FILE: kwstopoulou.pdf
+PATH: /thesis-writing-support/ --FILE: 10tipsforwritingapaper.pdf
+PATH: /thesis-writing-support/ --FILE: Academic+Writing+and+Publishing+-+A+Practical+Handbook.pdf
+PATH: /thesis-writing-support/ --FILE: BG Writing History.pdf
+PATH: /thesis-writing-support/ --FILE: FormattingGuidelines.pdf
+PATH: /thesis-writing-support/ --FILE: Thoughts on art practice PhDs _ FuelRCA.pdf
+PATH: /thesis-writing-support/ --FILE: WritingInTheSciences.pdf
+PATH: /thesis-writing-support/ --FILE: paper-writing.pdf
+PATH: /thesis-writing-support/ --FILE: parbery-referee.pdf
+PATH: /thesis-writing-support/ --FILE: phd_seminar_1.pdf
+PATH: /thesis-writing-support/ --FILE: research_bad_career.pdf
+PATH: /thesis-writing-support/ --FILE: student_keynote_final.pdf
+PATH: /thesis-writing-support/ --FILE: thesis2.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/Australia/ --FILE: Its_a_PhD_not_a_Nobel_Prize.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/Australia/ --FILE: Uni_Melbourne_Creative_Works_PhD.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/Australia/ --FILE: Uni_Melbourne_Format_PhD and Doctorate.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/Canada/ --FILE: McGill_theses_guidelines_2013.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/EU/EuropeanCharterForResearchers/ --FILE: European-charter-for-researchers.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/EU/EuropeanCharterForResearchers/ --FILE: European-charter-for-researchersNencki.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/EU/EuropeanCharterForResearchers/ --FILE: Procedures-principles-concerning-employeesNencki.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/EU/EuropeanUniversityAssociation_COUNCIL FOR DOCTORAL EDUCATION/ --FILE: BolognaSalzburg_Conclusions.1108990538850.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/EU/EuropeanUniversityAssociation_COUNCIL FOR DOCTORAL EDUCATION/ --FILE: Salzburg II Recommendations.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/EU/EuropeanUniversityAssociation_COUNCIL FOR DOCTORAL EDUCATION/ --FILE: Salzburg_Conclusions.1108990538850.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/EU/EuropeanUniversityAssociation_COUNCIL FOR DOCTORAL EDUCATION/ --FILE: bolognasummary.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/EU/EuropeanUniversityAssociation_COUNCIL FOR DOCTORAL EDUCATION/ --FILE: dublin_descriptors.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/France/ --FILE: UPMF_charte_du_doctorat.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/Germany/ --FILE: Humboldtguidethesis.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/Germany/ --FILE: wiwi_humboldt_dissertation.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/Greece/ --FILE: AegeanUniversity_Geography_odigos_ds_2011.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/Greece/ --FILE: AskisiPoiotitaZoisGuide.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/Greece/ --FILE: AthensUniversityEconomics_3_paper_phd_guide.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/Greece/ --FILE: Thraki_Physiki_Agogi_PhD.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/Greece/ --FILE: ΕΚΠΑ_ Τμήμα Επικοινωνίας και Μ.Μ.Ε_οδηγός_υποβολής_προτάσεων.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/India/ --FILE: Guidelines_for_PhD_Thesis_Preparation_and_Submission.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/Ireland/ --FILE: Good_Practice_in_Phd.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/Ireland/ --FILE: IrishUniversitiesGraduate_Skills_Statement.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/Ireland/ --FILE: NUI_Galaway_university_guidelines_for_research_degree_programmes.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/ --FILE: υπόδειγμα πρότασης διδακτορικής διατριβής - Google Search.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/PhDProposalExamples/ --FILE: phd proposal example - Google Search01.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/PhDProposalExamples/ --FILE: phd proposal example - Google Search02.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/PhDProposalExamples/MediaStudies/ --FILE: ArtAndCollaborativeNewMedia.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/PhDProposalExamples/MediaStudies/ --FILE: PhD Research Proposal.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/PhDProposalExamples/MediaStudies/ --FILE: The PhD Proposal _ Communication, Culture & Media.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/PhDProposalExamples/MediaStudies/ --FILE: phd proposal example media studies - Google Search.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/PhDProposalExamples/Other/ --FILE: Economics_GreekExample.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/PhDProposalExamples/Other/ --FILE: Finance8Research-proposal-example1.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/PhDProposalExamples/Other/ --FILE: Geography_phd-proposal-sample.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/PhDProposalExamples/Other/ --FILE: Hull_Culture_Theory_An Example of a successful PhD proposal.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/PhDProposalExamples/Other/ --FILE: UTexasAmericanStudies.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/PhDProposalExamples/Other/ --FILE: UTexasAsianStudies.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/PhDProposalExamples/Other/ --FILE: UTexasClassics.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/PhDProposalExamples/Other/ --FILE: UTexasCultureTheory.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/PhDProposalExamples/Other/ --FILE: UTexasEthnomusicology.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/PhDProposalExamples/Other/ --FILE: UTexasPhilosophy.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/PhDProposalExamples/Other/ --FILE: UTexasTheater.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/ProposalManualsAndTutorials/ --FILE: (Essential Resource Books for Social Research) Keith F Punch-Developing Effective Research Proposals (Essential Resource Books for Social Research)-Sage Publications, Inc. (Ltd.) (2000).pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/ProposalManualsAndTutorials/ --FILE: Anthony C. Winkler, Jo Ray McCuen-Metherell-Writing the Research Paper_ A Handbook, 2009 MLA Update Edition  -Wadsworth Publishing (2009).pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/ProposalManualsAndTutorials/ --FILE: Diana Hacker, Nancy Sommers, Jane Rosenzweig-The Bedford Handbook with 2009 MLA and 2010 APA Updates, 8th Edition-Bedford_St. Martin's (2009).pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/ProposalManualsAndTutorials/ --FILE: Margot Ely with Margaret Anzul, Teri Freidman, Diane Garner, Ann McCormack Steinmetz-Doing Qualitative Research_ Circles Within Circles (Teachers' Library)-Falmer Press (an imprint of the Taylor & Fra.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/ProposalManualsAndTutorials/ --FILE: Modern Language Association-MLA Handbook for Writers of Research Papers 7th Edition  -Modern Language Association of America (2009).pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/ProposalManualsAndTutorials/ --FILE: Paula Saukko-Doing Research in Cultural Studies_ An Introduction to Classical and New Methodological Approaches (Introducing Qualitative Methods series) (2003).pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/ProposalManualsAndTutorials/ --FILE: researchquestionsinphd_compact.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/ProposalTemplatesAndGuidelines/ --FILE: CityUniv_Law_Writing-a-Successful-PhD-Proposal-Guidance-Notes.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/ProposalTemplatesAndGuidelines/ --FILE: EspireEducation_Guidelines for PhD Research Proposal « Study Abroad Tips.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/ProposalTemplatesAndGuidelines/ --FILE: FindAPhD_PhD _ Writing a Good PhD Proposal.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/ProposalTemplatesAndGuidelines/ --FILE: GreekGuidelinesThessalia.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/ProposalTemplatesAndGuidelines/ --FILE: GreekProposalGuidelinesAndManual.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/ProposalTemplatesAndGuidelines/ --FILE: ManitobaPhD_Thesis_Proposal_PDF_version.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/ProposalTemplatesAndGuidelines/ --FILE: SwinburneResearch_ThesisProposalTemplate_1Dec05.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/ProposalTemplatesAndGuidelines/ --FILE: UtahStudentGuideToPreparingForPhDProposal.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/ProposalTemplatesAndGuidelines/ThesisGuidelinesNewSchoolNY/ --FILE: thesis-completion-deadline.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/ProposalTemplatesAndGuidelines/ThesisGuidelinesNewSchoolNY/ --FILE: thesis-handbook.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/ProposalTemplatesAndGuidelines/ThesisGuidelinesNewSchoolNY/ --FILE: thesis-proposal-timeline.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/ThesisExamples/ --FILE: objet_visiosonore.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/OtherGuidelinesAndAdvice/ThesisGuidelines/ --FILE: UniversityThrakiGreeceThesisGuidelines.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/Practice_Based/ --FILE: Art Practice and the Doctoral Degree.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/Practice_Based/ --FILE: CCS-PBR Main ReportAustralia.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/Practice_Based/ --FILE: Candy2006_PBR Guide-1.1-2006.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/Practice_Based/ --FILE: Carole Gray, Julian Malins-Visualizing Research_ A Guide To The Research Process In Art And Design-Ashgate Publishing (2004).pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/Practice_Based/ --FILE: MalinsGray1995.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/Practice_Based/ --FILE: Methodological Innovation in Practice-Based Design Doctorates _ Yee _ Journal of Research Practice.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/Practice_Based/ --FILE: guidethesis_reimann_symposiumAE.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/UK/ --FILE: GSA_phd_mphil-1.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/UK/ --FILE: University of London MPhil-PhD regulations.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/UK/ArtsAndHumanitiesResearchCouncil/ --FILE: Pactice-ledReviewNov07.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/UK/ArtsAndHumanitiesResearchCouncil/ --FILE: Practice-ledReviewAppendicesNov07.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/UK/CambridgeUniversityGradHandbooks/ --FILE: AsianAfricanStudiesPG HANDBOOK 2012-2013.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/UK/CambridgeUniversityGradHandbooks/ --FILE: Cambridge_code_of_practice11_12.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/UK/CambridgeUniversityGradHandbooks/ --FILE: GraduateDegrees_code_of_practice12_13.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/UK/CambridgeUniversityGradHandbooks/ --FILE: PhilosophyGrad_Handbook.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/UK/CambridgeUniversityGradHandbooks/ --FILE: The Aim of the PhD — Faculty of History.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/UK/UK_Quality_Assurance_Association_Universities/ --FILE: Doctoral_Characteristics.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/UK/UK_Quality_Assurance_Association_Universities/ --FILE: Doctorate_Guide.pdf
+PATH: /thesis-writing-support/PhDGuidelines_and_Discussions/USA/ --FILE: purdue_graduate-thesis-manual.pdf
+PATH: /thesis-writing-support/StyleAndGrammar/ --FILE: TheElementsOfStyle.pdf
+PATH: /thesis-writing-support/StyleAndGrammar/ --FILE: UnescoEnglishStyleGuide.pdf
+PATH: /thesis-writing-support/StyleAndGrammar/ --FILE: WritingGoodHistoryPaper.pdf
+PATH: /thesis-writing-support/StyleAndGrammar/ --FILE: ottawa_english_style-guide.pdf
+PATH: /thesis-writing-support/StyleAndGrammar/ --FILE: styleguide_english_dgt_en.pdf

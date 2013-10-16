@@ -114,7 +114,7 @@
          ("publication" . ?l) ("artproject" . ?a ) (:endgroup )
          ("laptop" . ?l) ("mt" . nil) ("coffee" . nil) ("toilet" . nil)
          ("sleep" . nil) ("procrastinating" . nil) ("career" . nil) ("avarts" . nil)
-         ("food" . nil) ("restaurant" . nil) ("ctypt" . ?y)
+         ("food" . nil) ("restaurant" . nil) ("crypt" . ?y)
          )
        )
 
