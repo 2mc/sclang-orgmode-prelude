@@ -1,20 +1,24 @@
+;;; org-bibedit.el --- Edit a tree of pdf file entries contained in a folder.
+
+;;; Commentary: 
 ;;; Developing a way to manage a bibliography of pdf files stored in 
 ;;; nested folders under a single folder.
 ;;; First, build an Org mode file reflecting the hierarchy of subfolders
 ;;; and listing all pdf files in them. 
-;;; More details are in the underway.org file in my work notes folder. 
+;;; See org-bibedit.org file for description.
 
-(require 'paredit)
+;;; IZ [2013-10-19 Sat]
 
-;;; This starting point to keep:
+;;; Code: 
 (require 'find-lisp)
+(require 'org)
 
-(defvar org-list-files-folders ())
+(defvar org-bibedit-list-files-folders ())
 
-(defun org-list-files (root &optional switches) 
+(defun org-bibedit-list-files (root &optional switches) 
   "Insert folders/files contained in root path, as orgmode tree."
   (interactive (dired-read-dir-and-switches ""))
-  (setq org-list-files-folders ())
+  (setq org-bibedit-list-files-folders ())
   (let* 
       ((files 
         (mapcar (lambda (path)
@@ -26,14 +30,12 @@
                          (find-lisp-find-files root "\.pdf"))
                  'string<))))
     (dolist (file-entry (sort files (lambda (a b) (string< (car a) (car b)))))
-      (apply 'org-make-file-entry file-entry))))
+      (apply 'org-bibedit-make-file-entry file-entry))))
 
-
-
-(defun org-make-file-entry (path filename fullpath)
+(defun org-bibedit-make-file-entry (path filename fullpath)
   (let (
         (node-prefix "\n")
-        (folder-check org-list-files-folders)
+        (folder-check org-bibedit-list-files-folders)
         (folders (cdr (split-string path "/")))
         (folderpath "/")
         )
@@ -44,25 +46,31 @@
           (setq folder-check (cdr folder-check))
         (progn
           (setq folder-check ())
-          (setq org-list-files-folders folders)
+          (setq org-bibedit-list-files-folders folders)
           (unless (equal folder "")
-            (org-list-files-insert-folder-node node-prefix folder folderpath)))
+            (org-bibedit-list-files-insert-folder-node node-prefix folder folderpath)))
         ))
-    (org-list-files-insert-file-node node-prefix path filename fullpath)))
+    (org-bibedit-list-files-insert-file-node node-prefix path filename fullpath)))
 
-
-(defun org-list-files-insert-folder-node (prefix folder folderpath)
+(defun org-bibedit-list-files-insert-folder-node (prefix folder folderpath)
   (insert (concat prefix " " folder))
   (insert (format "\n\t:PROPERTIES:\n\t:PATH: %s\n\t:END:" folderpath)))
 
-(defun org-list-files-insert-file-node (prefix path filename fullpath)
+(defun org-bibedit-list-files-insert-file-node (prefix path filename fullpath)
   (insert (concat prefix " " filename))
   (insert (format "\n\t:PROPERTIES:\n\t:PATH: %s\n\t:TYPE: FILE\n\t" fullpath))
   (insert (format "\n\t:FILENAME: %s\n\t:END:" filename))
 )
 
-(defun org-make-files-table ()
-  "Create table listing files collected in org buffer by org-list-files."
+;; DRAFT
+(defun org-bibedit-open-file ()
+  "Open file of current node."
+  (interactive)
+  (org-open-file-with-system (org-entry-get (point) "PATH")))
+
+
+(defun org-bibedit-make-files-table ()
+  "Create table listing files collected in org buffer by org-bibedit-list-files."
   (interactive)
   (let ((entries ()))
     (org-map-entries 
@@ -77,11 +85,12 @@
               entries))
          ))
      )
-    (insert "|-|-|-|-|\n")
-    (insert "| ! | filename | link | stdname |\n")
-    (insert "|-|-|-|-|\n")
+    (insert "|-|-|-|-|-|\n")
+    (insert "| ! | filename | link | shortname | status |\n")
+    (insert "|-|-|-|-|-|\n")
     (dolist (entry entries)
-       (insert (format "| | %s | [[%s][link]] | |\n" (car entry) (cadr entry)))
-                             )
+       (insert (format "| | %s | [[%s][link]] | | |\n" (car entry) (cadr entry)))) 
+    (insert "|-|-|-|-|-|")))
 
-    (insert "|-|-|-|-|")))
+(provide 'org-bibedit.el)
+;;; org-bibedit.el ends here
