@@ -1,0 +1,36 @@
+
+
+Testing tangling of emacs lisp in a file loaded with org-babel-load-file. 
+
+Can one disable the loading of a node by some tag?
+
+* excerpt 1
+
+#+NAME: one
+#+BEGIN_SRC emacs-lisp :exports results
+(setq test1 1)
+#+END_SRC
+
+* excerpt 2
+
+#+BEGIN_SRC emacs-lisp :exports both
+(setq test2 "-------------------")
+#+END_SRC
+
+
+* testing vars
+
+#+BEGIN_SRC emacs-lisp
+(setq test3 123456789)
+#+END_SRC
+
+
+* Image test
+
+#+BEGIN: image :file "/Users/iani2/Desktop/test.jpg"
+
+#+END:
+
+#+CAPTION: This is the caption for the next figure link (or table)
+#+NAME:   fig:SED-HR4049
+[[file:/Users/iani2/Desktop/test.jpg]]

@@ -3,6 +3,14 @@ sclang-orgmode-prelude
 
 Personal folder for emacs-prelude package: setup of sclang, auto-load of packages in prelude folder (+later: dynsite orgmode-html publishing extension)
 
+## Downloading:
+
+Since packages are added to git as submodules, if you clone this code here, you should do it with this command:
+
+git clone --recursive https://github.com/iani/sclang-orgmode-prelude.git
+
+This will make sure that you also get the submodule packages from other github repositories.
+
 ## To use:
 
 - Download and install emacs-prelude. See instructions here: http://batsov.com/prelude/
@@ -32,10 +40,8 @@ Folders packages and custom have accumulated over time. Main points:
 
 Several other packages which I like and use have been added.
 
-Since packages are added to git as submodules, if you clone this code here, you should do it with this command:
+## See also:
 
-git clone --recursive https://github.com/iani/sclang-orgmode-prelude.git
-
-This will make sure that you also get the submodule packages from other github repositories.
+http://kieranhealy.org/resources/emacs-starter-kit.html
 
 Iannis Zannos 14/10/2013

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>(Introduction to Org-Reveal)</title>
+<meta name="author" content="(Yujie Wen)"/>
+<link rel="stylesheet" href="file:///Users/iani2/Documents/Dev/Web/reveal.js/css/reveal.min.css"/>
+<link rel="stylesheet" href="file:///Users/iani2/Documents/Dev/Web/reveal.js/css/theme/moon.css" id="theme"/>
+
+<link rel="stylesheet" href="file:///Users/iani2/Documents/Dev/Web/reveal.js/css/print/pdf.css" type="text/css" media="print"/>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<meta name="description" content="Org-Reveal Introduction.">
+</head>
+<body>
+<p>
+Thanks to Org-Babel, now we can embed preambles into Org document!
+</p>
+<div class="reveal">
+<div class="slides">
+<section>
+<h1>Introduction to Org-Reveal</h1>
+<h2>Yujie Wen</h2>
+<h2><a href="mailto:yjwen.ty@gmail.com">yjwen.ty@gmail.com</a></h2>
+<h2></h2></section>
+<section>
+<h2>Table of Contents</h2><ul>
+<li>
+<a href="#sec-1">Reveal.js and Org-Reveal</a>
+</li>
+<li>
+<a href="#sec-2">Requirements and Installation</a>
+<ul>
+<li>
+<a href="#my-heading">MathJax</a>
+</li>
+<li>
+<a href="#sec-2-2">Preamble and Postamble</a>
+<ul>
+<li>
+<a href="#sec-2-2-1">Generating Pre/Postamble by Emacs-Lisp Functions</a>
+</li>
+</ul>
+</section>
+
+<section id="sec-1" >
+
+<h2>Reveal.js and Org-Reveal</h2>
+<ul class="org-ul">
+<li><b>Reveal.js</b> is a tool for creating good-looking HTML presentations,
+authored by <i>Hakim El Hattab</i>. <br/>
+    For an example of reveal.js presentation, click <a href="http://lab.hakim.se/reveal-js/#/">here</a>.
+</li>
+<li><b>Org-Reveal</b> exports your <i>Org</i> documents to reveal.js
+presentations.<br/>
+    With Org-reveal, you can create beautiful presentations with 3D
+effects from simple but powerful Org contents.
+</li>
+</ul>
+</section>
+<section id="sec-2" >
+
+<h2>Requirements and Installation</h2>
+<div class="org-src-container">
+
+<pre class="src src-elisp">(setq org-reveal-root <span style="color: #ffc1c1;">"file:///Users/iani2/Documents/Dev/Web/reveal.js"</span>)
+</pre>
+</div>
+
+</section>
+<section>
+<section id="my-heading" >
+
+<h3>MathJax</h3>
+
+
+<p>
+\({n! \over k!(n-k)!} = {n \choose k}\)
+</p>
+
+<p>
+LateX equation are renderred in native HTML5 contents.
+</p>
+
+<p>
+<b>IMPORTANT</b>: Displaying equations requires internet connection to
+<i>mathjax.org</i> or local MathJax installation.
+</p>
+
+<p>
+<b>IMPORTANT 2</b>: MathJax is disabled by default to reduce internet
+traffic. Set <code>#+OPTIONS</code> tag <code>reveal_mathjax</code> or variable
+<code>org-reveal-mathjax</code> to true to enable it. For local MathJax
+installation, set option <code>REVEAL_MATH_JAX_URL</code> to the URL pointing
+to the local MathJax location.
+</p>
+</section>
+</section>
+<section>
+<section id="sec-2-2" >
+
+<h3>Preamble and Postamble</h3>
+<p>
+You can define preamble and postamble contents which will not be
+shown as slides, but will be exported into the body part of the
+generated HTML file, at just before and after the slide contents.
+</p>
+
+<p>
+Change preamble and postamble contents globally by setting variable
+<code>org-reveal-preamble</code> and <code>org-reveal-postamble</code>.
+</p>
+
+<p>
+Change preamble and postamble contents locally by setting options
+<code>REVEAL_PREAMBLE</code> and <code>REVEAL_POSTAMBLE</code>, as illustrated at the
+heading part of this document.
+</p>
+
+<p>
+To add custom contents into HTML <code>&lt;head&gt;</code> parts, set contents to
+variable <code>org-reveal-head-preamble</code> or option
+<code>REVEAL_HEAD_PREAMBLE</code>.
+</p>
+
+</section>
+<section id="sec-2-2-1" >
+
+<h4>Generating Pre/Postamble by Emacs-Lisp Functions</h4>
+<p>
+If the contents of pre/postamble is the name of an evaluated
+Emacs-Lisp funtion, which must accept an argument of Org-mode
+info and return a string, the returned string will be taken
+as pre/postamble contents.
+</p>
+
+<p>
+So you can embed the Emacs-Lisp function as an Org-Babel source
+block and mark it to be evaluated at exporting the document.
+</p>
+
+<p>
+In this document, the <code>REVEAL_PREAMBLE</code> option is set to
+<code>my-preamble</code>, now we will define <code>my-preamble</code> in an Org-Bable
+source block, as illustrated below (invisible in the slides).
+</p>
+
+<p>
+The <code>:exports results :result silent</code> options mark the source
+block to be evaluated at exporting and the evaluation result
+is omitted, so it won't disturb slide contents.
+</p>
+
+<p>
+Check the generated HTML to see how it works.
+</p>
+</section>
+</section>
+</div>
+</div>
+<p> Created by yjwen. </p>
+<script src="file:///Users/iani2/Documents/Dev/Web/reveal.js/lib/js/head.min.js"></script>
+<script src="file:///Users/iani2/Documents/Dev/Web/reveal.js/js/reveal.min.js"></script>
+<script>
+
+        		// Full list of configuration options available here:
+        		// https://github.com/hakimel/reveal.js#configuration
+        		Reveal.initialize({
+        			controls: true,
+        			progress: true,
+        			history: false,
+        			center: true,
+        			rollingLinks: true,
+        			keyboard: true,
+        			overview: true,
+        			width: 1200, // slide width
+        			height: 800, // slide height
+        			margin: 0.10, // slide margin
+        			minScale: 0.50, // slide minimum scaling factor
+        			maxScale: 2.50, // slide maximum scaling factor
+
+
+        			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        			transition: Reveal.getQueryHash().transition || 'cube', // default/cube/page/concave/zoom/linear/fade/none
+        			transitionSpeed: 'default',
+
+        			// Optional libraries used to extend on reveal.js
+        			dependencies: [
+        				{ src: 'file:///Users/iani2/Documents/Dev/Web/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        				{ src: 'file:///Users/iani2/Documents/Dev/Web/reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        				{ src: 'file:///Users/iani2/Documents/Dev/Web/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        				{ src: 'file:///Users/iani2/Documents/Dev/Web/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        				{ src: 'file:///Users/iani2/Documents/Dev/Web/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+        				{ src: 'file:///Users/iani2/Documents/Dev/Web/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: 'file:///Users/iani2/Documents/Dev/Web/reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: 'file:///Users/iani2/Documents/Dev/Web/reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        			]
+        		});
+</script>
+</body>
+</html>

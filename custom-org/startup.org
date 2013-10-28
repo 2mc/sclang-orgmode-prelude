@@ -1,0 +1,241 @@
+#+STARTUP: content
+* Intro: Startup configuration - organized in an org-file
+
+This file contains the configuration code in a single file.  It is loaded using org-babel-load-file. 
+
+See http://orgmode.org/worg/org-contrib/babel/intro.html, Literate Emacs Initialization example and http://kieranhealy.org/resources/emacs-starter-kit.html for other examples.
+
+* Dired extensions and customization
+(From Healy's startup kit)
+
+** Dired-x
+Dired extensions
+#+source: Dired-x
+#+begin_src emacs-lisp
+  (load "dired-x")
+#+end_src
+
+** Dired open multiple files
+In dired mode, visit all marked files using. Bound to the "F" key. 
+#+source: dired-F
+#+begin_src emacs-lisp
+  (eval-after-load "dired"
+  '(progn
+     (define-key dired-mode-map "F" 'my-dired-find-file)
+     (defun my-dired-find-file (&optional arg)
+       "Open each of the marked files, or the file under the point, or when prefix arg, the next N files "
+       (interactive "P")
+       (let* ((fn-list (dired-get-marked-files nil arg)))
+         (mapc 'find-file fn-list)))))
+#+end_src
+
+** Stripe Dired buffers
+#+name: stripe-dired
+#+begin_src [emacs-lisp (This part is disabled)]
+(require 'stripe-buffer)
+(add-hook 'org-mode-hook 'org-table-stripes-enable)
+(add-hook 'dired-mode-hook 'stripe-listify-buffer)  
+#+end_src
+
+
+* Calendar framework: Show org agenda in iCal-style layout
+
+#+BEGIN_SRC emacs-lisp
+ (require 'calfw)
+#+END_SRC
+
+
+* Paredit mode: Power mode for editing lisp
+#+BEGIN_SRC emacs-lisp
+(require 'paredit)
+#+END_SRC
+
+* Org-mode customization
+** general behavior
+
+#+BEGIN_SRC emacs-lisp
+;;; Some org-mode customization
+(setq org-startup-indented t) ;; auto-indent text in subtrees
+(setq org-hide-leading-stars t) ;; hide leading stars in subtree headings
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+;;; log notes in drawer:
+(setq org-log-into-drawer t)
+
+;;; Display habits correctly when rescheduling next date due
+(setq org-habit-show-habits-only-for-today nil)
+#+END_SRC
+
+** Encryption
+
+#+BEGIN_SRC emacs-lisp
+(require 'org-crypt)
+(org-crypt-use-before-save-magic)
+(setq org-tags-exclude-from-inheritance (quote ("crypt")))
+;; GPG key to use for encryption
+;; Either the Key ID or set to nil to use symmetric encryption.
+(setq org-crypt-key nil)
+#+END_SRC
+
+** epresent: Quick slide presentations from orgmode
+
+Load epresent package for easy presentations from orgmode
+#+BEGIN_SRC emacs-lisp
+(require 'epresent)
+#+END_SRC
+
+Start e-present slideshow on other buffer
+#+BEGIN_SRC emacs-lisp
+(defun epresent-subtree-in-other-buffer ()
+  "Copy current subtree into buffer presentation.org.
+Switch to that buffer.
+Activate 'org-mode' in that buffer.
+Start e-present presentation in that buffer."
+  (interactive)
+  (org-copy-subtree)
+  (switch-to-buffer "presentation.org")
+  (org-mode)
+  (epresent-run)
+  )
+#+END_SRC
+
+
+** org-reveal: Export slides for Reveal.js from orgmod
+
+Load org-reveal to make slides with reveal.js
+
+#+BEGIN_SRC emacs-lisp
+(require 'ox-reveal)
+#+END_SRC
+
+** Org-Babel: enable some languages
+
+Enable some cool languages in org-babel mode.
+
+#+BEGIN_SRC emacs-lisp
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (sh . t)
+   (ruby . t)
+   (python . t)
+   (perl . t)
+   ))
+#+END_SRC
+
+** o-blog : Framework for web-site publishing with Bootstrap
+
+o-blog is a package for publishing static web sites from orgmode.
+By Sébastien Gross (renard)
+See: https://github.com/renard/o-blog, http://renard.github.io/o-blog/
+
+#+BEGIN_SRC emacs-lisp
+(require 'htmlize)
+(require 'o-blog)
+#+END_SRC
+
+** Orgmode latex customization
+
+#+BEGIN_SRC emacs-lisp
+
+;;; Load latex package
+(require 'ox-latex)
+
+;;; Use xelatex instead of pdflatex, for support of multilingual fonts (Greek etc.)
+(setq org-latex-pdf-process (list "xelatex -interaction nonstopmode -output-directory %o %f" "xelatex -interaction nonstopmode -output-directory %o %f" "xelatex -interaction nonstopmode -output-directory %o %f"))
+
+;;; Add beamer to available latex classes, for slide-presentaton format
+(add-to-list 'org-latex-classes
+             '("beamer"
+               "\\documentclass\[presentation\]\{beamer\}"
+               ("\\section\{%s\}" . "\\section*\{%s\}")
+               ("\\subsection\{%s\}" . "\\subsection*\{%s\}")
+               ("\\subsubsection\{%s\}" . "\\subsubsection*\{%s\}")))
+
+;;; Add memoir class (experimental)
+(add-to-list 'org-latex-classes 
+             '("memoir" 
+               "\\documentclass[12pt,a4paper,article]{memoir}" 
+               ("\\section{%s}" . "\\section*{%s}") 
+               ("\\subsection{%s}" . "\\subsection*{%s}") 
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+#+END_SRC
+
+** TO-DO color customization
+
+#+BEGIN_SRC emacs-lisp
+(setq org-todo-keyword-faces
+      '(
+        ("TODO"  . (:foreground "firebrick1" :weight bold))
+        ("ACTIVE"  . (:foreground "firebrick3" background: "blue" :weight bold))
+        ("INACTIVE"  . (:foreground "grey" :weight bold))
+        ("PROJECT"  . (:foreground "steelblue" :weight bold))
+        ("DONE"  . (:foreground "forestgreen" :weight bold))
+        ("MAYBE"  . (:foreground "dimgrey" :weight bold))
+        ("CANCELED"  . shadow)
+        ))
+#+END_SRC
+
+* Window and font customization
+
+#+BEGIN_SRC emacs-lisp
+;;; resize main window
+(setq default-frame-alist '((width . 100) (height . 65) (menu-bar-lines . 1)))
+
+;;; Set font size to 11 points.
+(set-face-attribute 'default nil :height 110)
+
+;;; Set tab width to 4 characters (for code examples in org-mode)
+(setq-default tab-width 4) ;; Note: (setq tab-width 4) does not work
+#+END_SRC
+
+
+* Undo inconvenient prelude-settings
+
+Enable usage of arrow-cursor keys: It is needed for orgmode.
+Disable prelude whitespace.
+
+#+BEGIN_SRC emacs-lisp
+(setq prelude-guru nil)
+(setq prelude-whitespace nil)
+#+END_SRC
+
+Turn off prelude mode when in org mode. This is necessary because
+prelude mode overwrites some important org mode bindings.
+
+#+BEGIN_SRC emacs-lisp
+(defun org-turn-off-prelude-mode ()
+  (prelude-mode -1))
+
+(add-hook 'org-mode-hook 'org-turn-off-prelude-mode)
+#+END_SRC
+
+* Add git repositories to Magit
+
+Magit config: Manage git repos from inside emacs
+
+#+BEGIN_SRC emacs-lisp
+(setq magit-repo-dirs
+      '(
+        "~/Dropbox/000WORKFILES/org"
+        "~/Documents/Dev"
+        "~/.emacs.d/personal"
+))
+#+END_SRC
+
+* Enable and load yasnippets
+
+Enable snippets with yasnippet
+
+#+BEGIN_SRC emacs-lisp
+(require 'yasnippet)
+(yas-load-directory "~/.emacs.d/personal/snippets/")
+(require 'sclang-snippets)
+(add-hook 'sclang-mode-hook 'yas/minor-mode-on)
+#+END_SRC
+
+
+

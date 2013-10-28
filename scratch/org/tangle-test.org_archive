@@ -1,0 +1,18 @@
+#    -*- mode: org -*-
+
+
+Archived entries from file /Users/iani2/.emacs.d/personal/scratch/org/tangle-test.org
+
+
+* testing vars
+:PROPERTIES:
+:ARCHIVE_TIME: 2013-10-28 Mon 00:37
+:ARCHIVE_FILE: ~/.emacs.d/personal/scratch/org/tangle-test.org
+:ARCHIVE_CATEGORY: tangle-test
+:END:
+
+#+BEGIN_SRC emacs-lisp
+(setq test3 123456789)
+#+END_SRC
+
+

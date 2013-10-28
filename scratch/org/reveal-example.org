@@ -1,0 +1,101 @@
+#+Title: Introduction to Org-Reveal
+#+Author: Yujie Wen
+#+Email: yjwen.ty@gmail.com
+
+#+OPTIONS: reveal_center:t reveal_progress:t reveal_history:nil reveal_control:t
+#+OPTIONS: reveal_mathjax:t reveal_rolling_links:t reveal_keyboard:t reveal_overview:t num:nil
+#+OPTIONS: reveal_width:1200 reveal_height:800
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+REVEAL_TRANS: cube
+#+REVEAL_THEME: moon
+#+REVEAL_HLEVEL: 2
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Org-Reveal Introduction.">
+#+REVEAL_PREAMBLE: my-preamble
+#+REVEAL_POSTAMBLE: <p> Created by yjwen. </p>
+
+* Reveal.js and Org-Reveal
+
+  - *Reveal.js* is a tool for creating good-looking HTML presentations,
+    authored by [[hakim.se][Hakim El Hattab]]. \\
+    For an example of reveal.js presentation, click [[http://lab.hakim.se/reveal-js/#/][here]].
+  - *Org-Reveal* exports your [[orgmode.org][Org]] documents to reveal.js
+    presentations.\\
+    With Org-reveal, you can create beautiful presentations with 3D
+    effects from simple but powerful Org contents.
+
+* Requirements and Installation
+
+#+BEGIN_SRC elisp 
+(setq org-reveal-root "file:///Users/iani2/Documents/Dev/Web/reveal.js")
+#+END_SRC
+
+** MathJax
+  :PROPERTIES:
+  :CUSTOM_ID: my-heading
+  :END:
+
+
+   ${n! \over k!(n-k)!} = {n \choose k}$
+
+   LateX equation are renderred in native HTML5 contents.
+
+   *IMPORTANT*: Displaying equations requires internet connection to
+   [[mathjax.org]] or local MathJax installation.
+
+   *IMPORTANT 2*: MathJax is disabled by default to reduce internet
+   traffic. Set =#+OPTIONS= tag =reveal_mathjax= or variable
+   =org-reveal-mathjax= to true to enable it. For local MathJax
+   installation, set option =REVEAL_MATH_JAX_URL= to the URL pointing
+   to the local MathJax location.
+   
+** Preamble and Postamble
+
+   You can define preamble and postamble contents which will not be
+   shown as slides, but will be exported into the body part of the
+   generated HTML file, at just before and after the slide contents.
+
+   Change preamble and postamble contents globally by setting variable
+   =org-reveal-preamble= and =org-reveal-postamble=.
+
+   Change preamble and postamble contents locally by setting options
+   =REVEAL_PREAMBLE= and =REVEAL_POSTAMBLE=, as illustrated at the
+   heading part of this document.
+
+   To add custom contents into HTML =<head>= parts, set contents to
+   variable =org-reveal-head-preamble= or option
+   =REVEAL_HEAD_PREAMBLE=.
+
+*** Generating Pre/Postamble by Emacs-Lisp Functions
+
+    If the contents of pre/postamble is the name of an evaluated
+    Emacs-Lisp funtion, which must accept an argument of Org-mode
+    info and return a string, the returned string will be taken
+    as pre/postamble contents.
+
+    So you can embed the Emacs-Lisp function as an Org-Babel source
+    block and mark it to be evaluated at exporting the document.
+
+    In this document, the =REVEAL_PREAMBLE= option is set to
+    =my-preamble=, now we will define =my-preamble= in an Org-Bable
+    source block, as illustrated below (invisible in the slides).
+
+#+BEGIN_SRC emacs-lisp :exports results :results silent
+  (defun my-preamble (info)
+    ""
+    "<p>
+  Thanks to Org-Babel, now we can embed preambles into Org document!
+  </p>")
+  
+#+END_SRC
+
+    The =:exports results :result silent= options mark the source
+    block to be evaluated at exporting and the evaluation result
+    is omitted, so it won't disturb slide contents.
+
+    Check the generated HTML to see how it works.
+
+
+
+

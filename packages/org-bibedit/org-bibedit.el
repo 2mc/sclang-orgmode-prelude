@@ -20,17 +20,25 @@
   (interactive (dired-read-dir-and-switches ""))
   (setq org-bibedit-list-files-folders ())
   (let* 
-      ((files 
+      ((filename-filter (cdr (assoc "FILENAME_FILTER" org-file-properties)))
+       (filename-filter (if filename-filter filename-filter "\.pdf$"))
+       (files 
         (mapcar (lambda (path)
                   (list (file-name-directory path)
                         (file-name-nondirectory path)
                         path))
                 (sort
                  (mapcar (lambda (string) (replace-regexp-in-string root "/" string))
-                         (find-lisp-find-files root "\.pdf"))
+                         (find-lisp-find-files 
+                          root filename-filter
+                            ;;; "\.pdf$"
+                          ))
                  'string<))))
     (dolist (file-entry (sort files (lambda (a b) (string< (car a) (car b)))))
       (apply 'org-bibedit-make-file-entry file-entry))))
+
+
+
 
 (defun org-bibedit-make-file-entry (path filename fullpath)
   (let (
@@ -92,5 +100,33 @@
        (insert (format "| | %s | [[%s][link]] | | |\n" (car entry) (cadr entry)))) 
     (insert "|-|-|-|-|-|")))
 
-(provide 'org-bibedit.el)
+;;;;; Helper functions
+
+;;; Stolen from o-blog.
+;;; Cloned here to avoid depending on o-blog package.
+(defun org-bibedit-get-header (header &optional all)
+  "Get HEADER from blog buffer as defined in BLOG global context
+variable.
+
+Returns only fist match except if ALL is defined."
+  (with-current-buffer
+      (current-buffer)
+;;; Normally 'BLOG is not bound unless under special config of o-blog.
+;;;      (if (boundp 'BLOG)
+;;;          (ob:blog-buffer BLOG)
+;;;        (current-buffer))
+    (save-excursion
+      (save-restriction
+        (save-match-data
+          (widen)
+          (goto-char (point-min))
+          (let (values)
+            (while (re-search-forward (format "^#\\+%s:?[ \t]*\\(.*\\)" header) nil t)
+              (add-to-list 'values (substring-no-properties (match-string 1))))
+            (if all
+                values
+              (car values))))))))
+
+(provide 'org-bibedit)
 ;;; org-bibedit.el ends here
+
