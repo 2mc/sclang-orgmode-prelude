@@ -20,10 +20,15 @@
 ;;; Code:
 
 ;; add orgmode's own package-archive
-(message "*mc: adding orgmode package-archive ++ re-initialize packages")
-(require 'package)
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-(package-initialize)
+;(require 'package)
+(unless (package-installed-p 'org-plus-contrib)
+  (message "*mc: adding orgmode package-archive ++ re-initialize packages")
+  (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+  (package-initialize)
+  (message "%s" "now refreshing its package database...")
+  (package-refresh-contents)
+  (message "%s" "...refreshing done!")
+)
 
 ;; automatically download some additionally necessary packages 
 (message "*mc: require package org-plus-contrib")
