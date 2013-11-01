@@ -1,8 +1,7 @@
-
-
 # ignore emacs backup and auto-save files
 
 \#*
 \.\#*
 *~
 *\#
+custom-org/startup.el
