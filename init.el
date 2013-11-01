@@ -24,6 +24,7 @@
        (default-directory (concat base "packages"))
        (user-custom-org-file (concat base (user-login-name) ".org"))
        )
+  (setq sclang-orgmode-prelude-base-dir base)
   (normal-top-level-add-subdirs-to-load-path)
   ;; Load plain emacs lisp files from folder "custom".
   (dolist (path (file-expand-wildcards (concat base "custom-elisp/*.el")))
@@ -34,5 +35,7 @@
   (if (file-exists-p user-custom-org-file)
       (org-babel-load-file user-custom-org-file))
   )
+
+;(message "************ sclang-orgmode-prelude-base-dir %s" sclang-orgmode-prelude-base-dir)
 
 ;;; init.el ends here.

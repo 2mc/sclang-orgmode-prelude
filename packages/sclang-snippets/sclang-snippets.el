@@ -29,7 +29,8 @@
 ;;;###autoload
 (defun sclang-snippets-initialize ()
   (let ((snip-dir 
-         "~/.emacs.d/personal/snippets"
+  		(expand-file-name "snippets" sclang-orgmode-prelude-base-dir)
+        ;; "~/.emacs.d/personal/snippets"
         ;;  (expand-file-name "snippets" sclang-snippets-root)
         ))
     (when (boundp 'yas-snippet-dirs)
