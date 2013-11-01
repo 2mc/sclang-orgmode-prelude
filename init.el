@@ -19,6 +19,22 @@
 
 ;;; Code:
 
+;; add orgmode's own package-archive
+(message "*mc: adding orgmode package-archive ++ re-initialize packages")
+(require 'package)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+(package-initialize)
+
+;; automatically download some additionally necessary packages 
+(message "*mc: require package org-plus-contrib")
+(prelude-require-package 'org-plus-contrib)
+(message "*mc: require package yasnippet")
+(prelude-require-package 'yasnippet)
+
+;;mc: why are there so many git submodules when packages are availlable by elpa?
+
+
+
 (let* (
        (base (file-name-directory (or load-file-name (buffer-file-name))))
        (default-directory (concat base "packages"))
@@ -35,7 +51,5 @@
   (if (file-exists-p user-custom-org-file)
       (org-babel-load-file user-custom-org-file))
   )
-
-;(message "************ sclang-orgmode-prelude-base-dir %s" sclang-orgmode-prelude-base-dir)
 
 ;;; init.el ends here.
