@@ -1,7 +1,7 @@
 #+STARTUP: content
 * Intro: Startup configuration - organized in an org-file
 
-This file contains the configuration code in a single file.  It is loaded using org-babel-load-file. 
+This file contains the configuration code in a single file.  It is loaded using org-babel-load-file.
 
 See http://orgmode.org/worg/org-contrib/babel/intro.html, Literate Emacs Initialization example and http://kieranhealy.org/resources/emacs-starter-kit.html for other examples.
 
@@ -16,7 +16,7 @@ Dired extensions
 #+end_src
 
 ** Dired open multiple files
-In dired mode, visit all marked files using. Bound to the "F" key. 
+In dired mode, visit all marked files using. Bound to the "F" key.
 #+source: dired-F
 #+begin_src emacs-lisp
   (eval-after-load "dired"
@@ -34,7 +34,7 @@ In dired mode, visit all marked files using. Bound to the "F" key.
 #+begin_src [emacs-lisp (This part is disabled)]
 (require 'stripe-buffer)
 (add-hook 'org-mode-hook 'org-table-stripes-enable)
-(add-hook 'dired-mode-hook 'stripe-listify-buffer)  
+(add-hook 'dired-mode-hook 'stripe-listify-buffer)
 #+end_src
 
 
@@ -154,11 +154,11 @@ See: https://github.com/renard/o-blog, http://renard.github.io/o-blog/
                ("\\subsubsection\{%s\}" . "\\subsubsection*\{%s\}")))
 
 ;;; Add memoir class (experimental)
-(add-to-list 'org-latex-classes 
-             '("memoir" 
-               "\\documentclass[12pt,a4paper,article]{memoir}" 
-               ("\\section{%s}" . "\\section*{%s}") 
-               ("\\subsection{%s}" . "\\subsection*{%s}") 
+(add-to-list 'org-latex-classes
+             '("memoir"
+               "\\documentclass[12pt,a4paper,article]{memoir}"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
@@ -183,15 +183,14 @@ See: https://github.com/renard/o-blog, http://renard.github.io/o-blog/
 
 #+BEGIN_SRC emacs-lisp
 ;;; resize main window
-(setq default-frame-alist '((width . 100) (height . 65) (menu-bar-lines . 1)))
+;mc (setq default-frame-alist '((width . 100) (height . 65) (menu-bar-lines . 1)))
 
 ;;; Set font size to 11 points.
-(set-face-attribute 'default nil :height 110)
+;mc (set-face-attribute 'default nil :height 110)
 
 ;;; Set tab width to 4 characters (for code examples in org-mode)
 (setq-default tab-width 4) ;; Note: (setq tab-width 4) does not work
 #+END_SRC
-
 
 * Undo inconvenient prelude-settings
 
@@ -218,12 +217,13 @@ prelude mode overwrites some important org mode bindings.
 Magit config: Manage git repos from inside emacs
 
 #+BEGIN_SRC emacs-lisp
-(setq magit-repo-dirs
-      '(
-        "~/Dropbox/000WORKFILES/org"
-        "~/Documents/Dev"
-        "~/.emacs.d/personal"
-))
+;; mc off:
+; (setq magit-repo-dirs
+;       '(
+;         "~/Dropbox/000WORKFILES/org"
+;         "~/Documents/Dev"
+;         "~/.emacs.d/personal"
+; ))
 #+END_SRC
 
 * Enable and load yasnippets
@@ -241,6 +241,3 @@ Enable snippets with yasnippet
 (require 'sclang-snippets)
 (add-hook 'sclang-mode-hook 'yas/minor-mode-on)
 #+END_SRC
-
-
-
