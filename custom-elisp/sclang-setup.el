@@ -24,15 +24,15 @@
 ;; Disable switching to default SuperCollider Workspace when recompiling SClang
 (setq sclang-show-workspace-on-startup nil)
 
-; ;; Save results of sc evaluation in elisp variable for access in emacs
-; (defvar sclang-return-string  nil
-;   "The string returned by sclang process after evaluating expressions.")
+;; Save results of sc evaluation in elisp variable for access in emacs
+(defvar sclang-return-string  nil
+  "The string returned by sclang process after evaluating expressions.")
 
-; (defadvice sclang-process-filter (before provide-sclang-eval-results)
-;   "Pass sc eval return string to elisp by setting sclang-return-string variable."
-;   (setq sclang-return-string (ad-get-arg 1)))
+(defadvice sclang-process-filter (before provide-sclang-eval-results)
+  "Pass sc eval return string to elisp by setting sclang-return-string variable."
+  (setq sclang-return-string (ad-get-arg 1)))
 
-; (ad-activate 'sclang-process-filter)
+(ad-activate 'sclang-process-filter)
 
 ;;; sclang-setup ends here
 
