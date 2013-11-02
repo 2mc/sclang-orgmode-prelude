@@ -67,6 +67,19 @@
   (local-set-key (kbd "C-s-b") 'sclang-goto-previous-snippet)
   (local-set-key (kbd "C-s-n") 'sclang-execute-next-snippet)
   (local-set-key (kbd "C-s-p") 'sclang-execute-previous-snippet)
+
+;;; mc german keyboard
+;; numbers won't work -- of course !!
+;  (local-set-key (kbd "C-s-268632088") 'sclang-execute-current-snippet) ;; alternative
+;  (local-set-key (kbd "C-s-268632070") 'sclang-goto-next-snippet)
+;  (local-set-key (kbd "C-s-268632066") 'sclang-goto-previous-snippet)
+;  (local-set-key (kbd "C-s-268632078") 'sclang-execute-next-snippet)
+;  (local-set-key (kbd "C-s-268632080") 'sclang-execute-previous-snippet)
+  (local-set-key (kbd "M-s-≈") 'sclang-execute-current-snippet) ;; alternative
+  (local-set-key (kbd "M-s-ƒ") 'sclang-goto-next-snippet)
+  (local-set-key (kbd "M-s-∫") 'sclang-goto-previous-snippet)
+  (local-set-key (kbd "M-s-~") 'sclang-execute-next-snippet)
+  (local-set-key (kbd "M-s-π") 'sclang-execute-previous-snippet)
 )
 
 ;; add to sclang-mode-hook
