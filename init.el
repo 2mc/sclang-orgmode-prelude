@@ -48,9 +48,7 @@
   ;; Load plain emacs lisp files from folder "custom".
   (dolist (path (file-expand-wildcards (concat base "custom-elisp/*.el")))
     (load-file path))
-  ;; Also load code in org mode files from folder "custom".
-  (dolist (path (file-expand-wildcards (concat base "custom-org/*.org")))
-    (org-babel-load-file path))
+  ;; Load user-specific file, if present.
   (if (file-exists-p user-custom-org-file)
       (org-babel-load-file user-custom-org-file))
   )
