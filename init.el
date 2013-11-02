@@ -19,11 +19,33 @@
 
 ;;; Code:
 
+;; add orgmode's own package-archive
+;(require 'package)
+(unless (package-installed-p 'org-plus-contrib)
+  (message "*mc: adding orgmode package-archive ++ re-initialize packages")
+  (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+  (package-initialize)
+  (message "%s" "now refreshing its package database...")
+  (package-refresh-contents)
+  (message "%s" "...refreshing done!")
+)
+
+;; automatically download some additionally necessary packages 
+(message "*mc: require package org-plus-contrib")
+(prelude-require-package 'org-plus-contrib)
+(message "*mc: require package yasnippet")
+(prelude-require-package 'yasnippet)
+
+;;mc: why are there so many git submodules when packages are availlable by elpa?
+
+
+
 (let* (
        (base (file-name-directory (or load-file-name (buffer-file-name))))
        (default-directory (concat base "packages"))
        (user-custom-org-file (concat base (user-login-name) ".org"))
        )
+  (setq sclang-orgmode-prelude-base-dir base)
   (normal-top-level-add-subdirs-to-load-path)
   ;; Load plain emacs lisp files from folder "custom".
   (dolist (path (file-expand-wildcards (concat base "custom-elisp/*.el")))

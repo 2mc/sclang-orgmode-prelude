@@ -232,7 +232,12 @@ Enable snippets with yasnippet
 
 #+BEGIN_SRC emacs-lisp
 (require 'yasnippet)
-(yas-load-directory "~/.emacs.d/personal/snippets/")
+
+(message "************ sclang-orgmode-prelude-base-dir %s" sclang-orgmode-prelude-base-dir)
+;(yas-load-directory "~/.emacs.d/personal/snippets/")
+
+(yas-load-directory (expand-file-name "snippets/" sclang-orgmode-prelude-base-dir))
+
 (require 'sclang-snippets)
 (add-hook 'sclang-mode-hook 'yas/minor-mode-on)
 #+END_SRC
