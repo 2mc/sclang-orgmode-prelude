@@ -42,7 +42,7 @@
   (let ((previoussnippet (re-search-backward "^//:" nil t)))
   (if (not previoussnippet) (setq previoussnippet (point-min)))
   (goto-char previoussnippet))
-  (next-line)
+  (previous-line)
 )
 
 (defun sclang-execute-previous-snippet ()

@@ -3,12 +3,12 @@
 ;;; Commentary:
 ;;; Customize init procedure so that files are neat and tidy:
 ;;; Packages are in folder "packages".
-;;; Single init files are in folder "custom".
+;;; Single init files are in folder "custom-elisp".
 ;;; Make packages from the packages folder available.
-;;; Then evaluate all files that are in folder "custom."
-;;; Also babel-load file <username>.org if present,
+;;; Then evaluate all files that are in folder "custom-elisp."
+;;; Also babel-load file user/<username>.org if present,
 ;;; where <username> is the string returned by (user-login-name)
-;;; <username> can also be asked through the shell with:
+;;; <username> can also be obtained from the shell with:
 ;;; echo $USER.
 
 ;;; For a more extensive customization scheme, see Kieran Healy's
@@ -30,7 +30,7 @@
   (message "%s" "...refreshing done!")
 )
 
-;; automatically download some additionally necessary packages 
+;; download some additional packages if not present
 (message "*mc: require package org-plus-contrib")
 (prelude-require-package 'org-plus-contrib)
 (message "*mc: require package yasnippet")
