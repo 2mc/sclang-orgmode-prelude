@@ -22,19 +22,29 @@
 ;; add orgmode's own package-archive
 ;(require 'package)
 (unless (package-installed-p 'org-plus-contrib)
-  (message "*mc: adding orgmode package-archive ++ re-initialize packages")
+  (message "*mc: adding org package-archive ++ re-initialize packages")
   (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
   (package-initialize)
-  (message "%s" "refreshing its package database...")
+  (message "refreshing org package database...")
   (package-refresh-contents)
-  (message "%s" "...refreshing done!")
+  (message "... org package database refreshing done!")
 )
 
 ;; download some additional packages if not present
+;; Note IZ: Consider moving this to user/<username>.org (Sun Nov  3 2013)
 (message "*mc: require package org-plus-contrib")
 (prelude-require-package 'org-plus-contrib)
 (message "*mc: require package yasnippet")
 (prelude-require-package 'yasnippet)
+
+(defvar 'sclang-orgmode-prelude-base-dir 
+  (file-name-directory (or load-file-name (buffer-file-name)))
+  "base path for other stuff. 
+  Note IZ Sun Nov 3 2013: Should be removed from here.
+  Individual files can add their own variables either locally 
+  or globally using (file-name-directory (buffer-file-name)).
+  "
+)
 
 (let* (
        (base (file-name-directory (or load-file-name (buffer-file-name))))
