@@ -46,7 +46,7 @@
     paths)
   )
 
-(defvar org-folder  "~/Dropbox/000WORKFILES/org/")
+(defvar org-folder  "~/Dropbox/_org/") ;; put this defvar out of here and make try to turn the whole capture-setup into a 'package'
 (setq monitoring-folder (concat org-folder "monitoring/"))
 (setq agenda-folder (concat org-folder "agenda/"))
 
