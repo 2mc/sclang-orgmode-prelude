@@ -1,0 +1,46 @@
+#+STARTUP: showall
+* org-mode
+** presenting
+*** epresent: Quick slide presentations from orgmode
+
+Load epresent package for easy presentations from orgmode
+#+BEGIN_SRC emacs-lisp
+(require 'epresent)
+#+END_SRC
+
+Start e-present slideshow on other buffer
+#+BEGIN_SRC emacs-lisp
+(defun epresent-subtree-in-other-buffer ()
+  "Copy current subtree into buffer presentation.org.
+Switch to that buffer.
+Activate 'org-mode' in that buffer.
+Start e-present presentation in that buffer."
+  (interactive)
+  (org-copy-subtree)
+  (switch-to-buffer´´`` "presentation.org")
+  (org-mode)
+  (epresent-run)
+  )
+#+END_SRC
+
+*** org-reveal: Export slides for Reveal.js from orgmod
+
+Load org-reveal to make slides with reveal.js
+
+#+BEGIN_SRC emacs-lisp
+(require 'ox-reveal)
+#+END_SRC
+* load yasnippets of iz
+#+BEGIN_SRC emacs-lisp
+  (when (featurep 'yasnippet)
+    (message "\n ** loading snippets of iz base-dir %s \n" sclang-orgmode-prelude-base-dir)
+    ;; mc: load them once 
+    (yas-load-directory (expand-file-name "snippets/" sclang-orgmode-prelude-base-dir))
+    ;; mc: keep them availlable on reloads
+    (add-to-list 'yas/root-directory (expand-file-name "snippets" sclang-orgmode-prelude-base-dir)) ; mc
+    )
+#+END_SRC
+
+#+RESULTS:
+| /Users/admin2/.emacs.d/personal_iz/snippets | /Users/admin2/.emacs.d/personal_mc/snippets | ~/.emacs.d/snippets | /Users/admin2/.emacs.d/elpa/yasnippet-20131031.628/snippets |
+
