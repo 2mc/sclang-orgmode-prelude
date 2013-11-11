@@ -37,7 +37,7 @@
 (message "*mc: require package yasnippet")
 (prelude-require-package 'yasnippet)
 
-(defvar 'sclang-orgmode-prelude-base-dir 
+(defvar sclang-orgmode-prelude-base-dir 
   (file-name-directory (or load-file-name (buffer-file-name)))
   "base path for other stuff. 
   Note IZ Sun Nov 3 2013: Should be removed from here.
